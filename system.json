@@ -1,0 +1,33 @@
+{
+  "name": "hero-6e",
+  "title": "HERO System 6th Edition",
+  "description": "HERO System 6th Edition game system",
+  "version": "0.1.0",
+  "templateVersion": 2,
+  "author": "@lee-dohm",
+  "scripts": [
+    "scripts/hero-damage.js"
+  ],
+  "esmodules": [
+  ],
+  "styles": [
+  ],
+  "packs": [
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": false,
+  "initiative": null,
+  "gridDistance": 2,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "resources.body",
+  "secondaryTokenAttribute": "resources.stun",
+  "url": "https://github.com/lee-dohm/foundry-vtt-hero-6e",
+  "manifest": "https://github.com/lee-dohm/foundry-vtt-hero-6e/blob/main/system.json",
+  "download": "https://github.com/lee-dohm/foundry-vtt-hero-6e/archive/main.zip"
+}
