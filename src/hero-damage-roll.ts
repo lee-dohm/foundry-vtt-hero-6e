@@ -6,15 +6,38 @@ export interface HeroDamageResult {
   type: HeroDamageType
 }
 
-export class HeroDamageRoll {
-  diceCount: number
+/**
+ * Represents some kind of damage roll in the Hero game system.
+ */
+abstract class HeroDamageRoll {
+  abstract roll(): HeroDamageResult
+}
+
+/**
+ * A normal damage roll in the HERO game system consists of zero or more full dice and zero or one
+ * "half" dice.
+ *
+ * A full die is a normal six-sided die. A half-die, in this case, is also a six-sided die whose
+ * values are calculated differently from the full dice.
+ *
+ * The Stun damage from the roll is the total of the full dice plus half of the value rolled on
+ * the one half die, if applicable, rounded up. The Body damage is calculated by totaling the
+ * values for each die according to the following:
+ *
+ * * A full die that rolls a 6 counts as 2 Body
+ * * A full die that rolls between 2 and 5 (inclusive) counts as 1 Body
+ * * A half die that rolls a 4 or better counts as 1 Body
+ * * Everything else counts as 0 Body
+ *
+ * See 6E2 98 for details.
+ */
+export class HeroNormalDamageRoll implements HeroDamageRoll {
+  diceCount: string
   diceRoll?: Roll
-  damageType: HeroDamageType
   result?: HeroDamageResult
 
-  constructor(diceCount: number, damageType: HeroDamageType = HeroDamageType.NORMAL) {
+  constructor(diceCount: string) {
     this.diceCount = diceCount
-    this.damageType = damageType
   }
 
   roll() {
@@ -61,14 +84,15 @@ export class HeroDamageRoll {
 
     this.result = {
       body: this._calculateBody(),
-      stun: full.total + Math.ceil(half.total / 2),
-      type: this.damageType
+      stun: full.total + (half ? Math.ceil(half.total / 2) : 0),
+      type: HeroDamageType.NORMAL
     }
   }
 
   _formatRoll() {
-    const full = Math.floor(this.diceCount)
-    const half = (this.diceCount - full) === 0.5 ? true : false
+    const diceCount = Number.parseFloat(this.diceCount)
+    const full = Math.floor(diceCount)
+    const half = (diceCount - full) === 0.5 ? true : false
 
     let formula = `${full}d6`
 
