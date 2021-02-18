@@ -1,4 +1,4 @@
-import { HeroDamage } from './hero-damage'
+import { HeroDamageRoll } from './hero-damage-roll'
 
 Hooks.on('init', async function () {
   // Initialize things here

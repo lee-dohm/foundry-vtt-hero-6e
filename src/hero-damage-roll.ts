@@ -6,7 +6,7 @@ export interface HeroDamageResult {
   type: HeroDamageType
 }
 
-export class HeroDamage {
+export class HeroDamageRoll {
   diceCount: number
   diceRoll?: Roll
   damageType: HeroDamageType
