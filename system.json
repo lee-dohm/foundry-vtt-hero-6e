@@ -6,9 +6,9 @@
   "templateVersion": 2,
   "author": "@lee-dohm",
   "scripts": [
-    "scripts/hero-damage.js"
   ],
   "esmodules": [
+    "modules/hero-6e.js"
   ],
   "styles": [
   ],
@@ -25,8 +25,8 @@
   "initiative": null,
   "gridDistance": 2,
   "gridUnits": "m",
-  "primaryTokenAttribute": "resources.body",
-  "secondaryTokenAttribute": "resources.stun",
+  "primaryTokenAttribute": "body",
+  "secondaryTokenAttribute": "stun",
   "url": "https://github.com/lee-dohm/foundry-vtt-hero-6e",
   "manifest": "https://github.com/lee-dohm/foundry-vtt-hero-6e/blob/main/system.json",
   "download": "https://github.com/lee-dohm/foundry-vtt-hero-6e/archive/main.zip"
