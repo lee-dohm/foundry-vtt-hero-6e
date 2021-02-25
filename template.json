@@ -1,0 +1,113 @@
+{
+  "Actor": {
+    "types": [
+      "character"
+    ],
+    "templates": {
+      "creature": {
+        "characteristics": {
+          "str": {
+            "value": 10,
+            "points": 0
+          },
+          "dex": {
+            "value": 10,
+            "points": 0
+          },
+          "con": {
+            "value": 10,
+            "points": 0
+          },
+          "int": {
+            "value": 10,
+            "points": 0
+          },
+          "ego": {
+            "value": 10,
+            "points": 0
+          },
+          "pre": {
+            "value": 10,
+            "points": 0
+          },
+          "ocv": {
+            "value": 3,
+            "points": 0
+          },
+          "dcv": {
+            "value": 3,
+            "points": 0
+          },
+          "omcv": {
+            "value": 3,
+            "points": 0
+          },
+          "dmcv": {
+            "value": 3,
+            "points": 0
+          },
+          "spd": {
+            "value": 2,
+            "points": 0
+          },
+          "pd": {
+            "value": 2,
+            "points": 0
+          },
+          "ed": {
+            "value": 2,
+            "points": 0
+          },
+          "rec": {
+            "value": 4,
+            "points": 0
+          },
+          "end": {
+            "value": 20,
+            "points": 0
+          },
+          "body": {
+            "value": 10,
+            "points": 0
+          },
+          "stun": {
+            "value": 20,
+            "points": 0
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": [
+        "creature"
+      ]
+    }
+  },
+  "Item": {
+    "types": [
+      "equipment"
+    ],
+    "templates": {
+      "breakable": {
+        "body": {
+          "value": 1
+        },
+        "def": {
+          "value": 0
+        }
+      },
+      "itemDescription": {
+        "description": {
+          "chat": "",
+          "full": ""
+        }
+      }
+    },
+    "equipment": {
+      "templates": [
+        "breakable",
+        "itemDescription"
+      ]
+    }
+  }
+}
