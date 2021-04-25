@@ -1,83 +1,104 @@
 {
   "Actor": {
     "types": [
-      "character"
+      "player",
+      "npc"
     ],
     "templates": {
       "creature": {
         "characteristics": {
           "str": {
             "value": 10,
-            "points": 0
+            "current": 10
           },
           "dex": {
             "value": 10,
-            "points": 0
+            "current": 10
           },
           "con": {
             "value": 10,
-            "points": 0
+            "current": 10
           },
           "int": {
             "value": 10,
-            "points": 0
+            "current": 10
           },
           "ego": {
             "value": 10,
-            "points": 0
+            "current": 10
           },
           "pre": {
             "value": 10,
-            "points": 0
+            "current": 10
           },
           "ocv": {
             "value": 3,
-            "points": 0
+            "current": 3
           },
           "dcv": {
             "value": 3,
-            "points": 0
+            "current": 3
           },
           "omcv": {
             "value": 3,
-            "points": 0
+            "current": 3
           },
           "dmcv": {
             "value": 3,
-            "points": 0
+            "current": 3
           },
           "spd": {
             "value": 2,
-            "points": 0
+            "max": 12,
+            "current": 2
           },
           "pd": {
             "value": 2,
-            "points": 0
+            "current": 2
           },
           "ed": {
             "value": 2,
-            "points": 0
+            "current": 2
           },
           "rec": {
             "value": 4,
-            "points": 0
+            "current": 4
           },
           "end": {
             "value": 20,
-            "points": 0
+            "current": 20
           },
           "body": {
             "value": 10,
-            "points": 0
+            "current": 10
           },
           "stun": {
             "value": 20,
+            "current": 20
+          }
+        },
+        "movement": {
+          "run": {
+            "value": 12,
+            "points": 0
+          },
+          "swim": {
+            "value": 4,
+            "points": 0
+          },
+          "leap": {
+            "value": 4,
             "points": 0
           }
         }
       }
     },
-    "character": {
+    "player": {
+      "templates": [
+        "creature"
+      ]
+    },
+    "npc": {
       "templates": [
         "creature"
       ]
@@ -85,29 +106,21 @@
   },
   "Item": {
     "types": [
-      "equipment"
+      "skill"
     ],
     "templates": {
-      "breakable": {
-        "body": {
-          "value": 1
-        },
-        "def": {
-          "value": 0
-        }
-      },
       "itemDescription": {
         "description": {
-          "chat": "",
-          "full": ""
+          "value": "",
+          "chat": ""
         }
       }
     },
-    "equipment": {
+    "skill": {
       "templates": [
-        "breakable",
         "itemDescription"
-      ]
+      ],
+      "roll": {}
     }
   }
 }
