@@ -25,8 +25,8 @@
   "initiative": null,
   "gridDistance": 2,
   "gridUnits": "m",
-  "primaryTokenAttribute": "body",
-  "secondaryTokenAttribute": "stun",
+  "primaryTokenAttribute": "characteristics.body",
+  "secondaryTokenAttribute": "characteristics.stun",
   "url": "https://github.com/lee-dohm/foundry-vtt-hero-6e",
   "manifest": "https://github.com/lee-dohm/foundry-vtt-hero-6e/blob/main/system.json",
   "download": "https://github.com/lee-dohm/foundry-vtt-hero-6e/archive/main.zip"
