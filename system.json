@@ -9,9 +9,10 @@
   "scripts": [
   ],
   "esmodules": [
-    "modules/hero-6e.js"
+    "modules/hero6e.js"
   ],
   "styles": [
+    "styles/hero6e.css"
   ],
   "packs": [
   ],

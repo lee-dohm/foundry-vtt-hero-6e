@@ -5,7 +5,7 @@
   "main": "modules/hero-6e.js",
   "scripts": {
     "build": "npm run build-styles && npx tsc",
-    "build-styles": "npx lessc less/styles.less styles.css",
+    "build-styles": "npx lessc less/styles.less styles/hero6e.css",
     "ci": "npm run format-check && npm run lint && npm test",
     "format": "prettier --write **/*.ts **/*.md **/*.yaml **/*.yml",
     "format-check": "prettier --check **/*.ts **/*.md **/*.yaml **/*.yml",
