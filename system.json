@@ -3,6 +3,7 @@
   "title": "HERO System 6th Edition",
   "description": "HERO System 6th Edition game system",
   "version": "0.1.0",
+  "minimumCoreVersion": "0.7.9",
   "templateVersion": 2,
   "author": "@lee-dohm",
   "scripts": [

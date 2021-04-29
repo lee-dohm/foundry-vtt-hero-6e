@@ -1,18 +1,9 @@
 import { DamageResult } from './damage-result'
 import { DamageType } from './damage-type'
 
-/**
- * Represents some kind of damage roll in the Hero game system.
- *
- * Since damage is calculated differently in the Hero game system than the way the Foundry dice
- * system is designed to calculate things*, we have to create another layer on top of the
- * standard system to perform damage rolls.
- *
- * \* Namely that the same die roll can be used to calculate two different values, for example
- * **BODY** and **STUN** values.
- */
-abstract class DamageRoll {
-  abstract roll(): DamageResult
+interface RollOptions {
+  minimize?: boolean,
+  maximize?: boolean
 }
 
 /**
@@ -31,9 +22,9 @@ abstract class DamageRoll {
  * * A half die that rolls a 4 or better counts as 1 Body
  * * Everything else counts as 0 Body
  *
- * See 6E2 98 for details.
+ * See `6E2 98` for details.
  */
-export class NormalDamageRoll implements DamageRoll {
+export class NormalDamageRoll {
   diceCount: string
   diceRoll?: Roll
   result?: DamageResult
@@ -42,9 +33,9 @@ export class NormalDamageRoll implements DamageRoll {
     this.diceCount = diceCount
   }
 
-  roll() {
+  roll(options?: RollOptions): DamageResult {
     this.diceRoll = new Roll(this._formatRoll())
-    this.diceRoll.roll()
+    this.diceRoll.evaluate(options)
     this._calculateResult()
 
     if (!this.result) {
@@ -54,7 +45,7 @@ export class NormalDamageRoll implements DamageRoll {
     return this.result
   }
 
-  _calculateBody() {
+  private _calculateBody(): number {
     if (!this.diceRoll) {
       throw new Error('Dice must be rolled before the result can be calculated')
     }
@@ -77,7 +68,7 @@ export class NormalDamageRoll implements DamageRoll {
     return body
   }
 
-  _calculateResult() {
+  private _calculateResult() {
     if (!this.diceRoll) {
       throw new Error('Dice must be rolled before the result can be calculated')
     }
@@ -91,7 +82,7 @@ export class NormalDamageRoll implements DamageRoll {
     }
   }
 
-  _formatRoll() {
+  private _formatRoll(): string {
     const diceCount = Number.parseFloat(this.diceCount)
     const full = Math.floor(diceCount)
     const half = (diceCount - full) === 0.5 ? true : false

@@ -14,6 +14,8 @@ const damageRollPattern = /^\d*(\.5|½)?d6([+-]1)?[kn]?$/i
  * damage) at the end. If neither is specified, normal damage is often assumed,
  * so that is how this function will interpret it.
  *
+ * See `6E2 98` for details.
+ *
  * @param formula A Hero damage roll formula
  * @returns Amount of damage rolled
  */
