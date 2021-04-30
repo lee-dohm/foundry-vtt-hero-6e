@@ -9,85 +9,85 @@
         "characteristics": {
           "str": {
             "value": 10,
-            "normal": 10
+            "max": 10
           },
           "dex": {
             "value": 10,
-            "normal": 10
+            "max": 10
           },
           "con": {
             "value": 10,
-            "normal": 10
+            "max": 10
           },
           "int": {
             "value": 10,
-            "normal": 10
+            "max": 10
           },
           "ego": {
             "value": 10,
-            "normal": 10
+            "max": 10
           },
           "pre": {
             "value": 10,
-            "normal": 10
+            "max": 10
           },
           "ocv": {
             "value": 3,
-            "normal": 3
+            "max": 3
           },
           "dcv": {
             "value": 3,
-            "normal": 3
+            "max": 3
           },
           "omcv": {
             "value": 3,
-            "normal": 3
+            "max": 3
           },
           "dmcv": {
             "value": 3,
-            "normal": 3
+            "max": 3
           },
           "spd": {
             "value": 2,
-            "normal": 2
+            "max": 2
           },
           "pd": {
             "value": 2,
-            "normal": 2
+            "max": 2
           },
           "ed": {
             "value": 2,
-            "normal": 2
+            "max": 2
           },
           "rec": {
             "value": 4,
-            "normal": 4
+            "max": 4
           },
           "end": {
             "value": 20,
-            "normal": 20
+            "max": 20
           },
           "body": {
             "value": 10,
-            "normal": 10
+            "max": 10
           },
           "stun": {
             "value": 20,
-            "normal": 20
+            "max": 20
           }
         },
         "movement": {
           "run": {
             "value": 12,
-            "normal": 12
+            "max": 12
           },
           "swim": {
             "value": 4,
-            "normal": 4
+            "max": 4
           },
           "leap": {
             "value": 4,
-            "normal": 4
+            "max": 4
           }
         }
       }

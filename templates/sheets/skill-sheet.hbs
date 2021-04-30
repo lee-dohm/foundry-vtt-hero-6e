@@ -7,6 +7,9 @@
       <tr>
         <th>{{localize "hero6e.points"}}</th>
         <th>{{localize "hero6e.skill.rollType"}}</th>
+        {{#if (eq data.roll.type "characteristic")}}
+        <th>{{localize "hero6e.characteristic"}}</th>
+        {{/if}}
       </tr>
       <tr>
         <td><input name="data.points" type="text" value="{{data.points}}" data-dtype="Number" /></td>
@@ -15,6 +18,13 @@
             {{selectOptions config.skillRollTypes selected=data.roll.type localize=true}}
           </select>
         </td>
+        {{#if (eq data.roll.type "characteristic")}}
+        <td>
+          <select name="data.roll.characteristic">
+            {{selectOptions config.skillRollCharacteristics selected=data.roll.characteristic localize=true}}
+          </select>
+        </td>
+        {{/if}}
       </tr>
     </table>
     {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}

@@ -7,9 +7,9 @@ export default class HeroItemSheet extends ItemSheet {
   }
 
   get template() {
-    console.log(`hero6e | Returning template: systems/hero6e/templates/sheets/${this.item.type}-sheet.html`)
+    console.log(`hero6e | Returning template: systems/hero6e/templates/sheets/${this.item.type}-sheet.hbs`)
 
-    return `systems/hero6e/templates/sheets/${this.item.type}-sheet.html`
+    return `systems/hero6e/templates/sheets/${this.item.type}-sheet.hbs`
   }
 
   getData() {
