@@ -1,3 +1,7 @@
 {
-  "HERO6E.title": "HERO System 6th Edition Game System"
+  "hero6e": {
+    "skill": {
+      "roll": "Roll"
+    }
+  }
 }

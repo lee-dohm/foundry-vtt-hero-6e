@@ -105,6 +105,7 @@
   },
   "Item": {
     "types": [
+      "power",
       "skill"
     ],
     "templates": {
@@ -115,11 +116,16 @@
         }
       }
     },
+    "power": {
+      "templates": [
+        "itemDescription"
+      ]
+    },
     "skill": {
       "templates": [
         "itemDescription"
       ],
-      "roll": {}
+      "roll": 11
     }
   }
 }
