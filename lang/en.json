@@ -1,7 +1,35 @@
 {
   "hero6e": {
+    "characteristic": "Characteristic",
+    "characteristics": {
+      "str": "STR",
+      "dex": "DEX",
+      "con": "CON",
+      "int": "INT",
+      "ego": "EGO",
+      "pre": "PRE",
+      "ocv": "OCV",
+      "dcv": "DCV",
+      "omcv": "OMCV",
+      "dmcv": "DMCV",
+      "spd": "SPD",
+      "pd": "PD",
+      "ed": "ED",
+      "rec": "REC",
+      "end": "END",
+      "body": "BODY",
+      "stun": "STUN"
+    },
+    "points": "Points",
     "skill": {
-      "roll": "Roll"
+      "bonus": "Bonus",
+      "roll": "Roll",
+      "rollType": "Roll Type",
+      "rollTypes": {
+        "characteristic": "Characteristic",
+        "none": "N/A",
+        "raw": "Raw"
+      }
     }
   }
 }
