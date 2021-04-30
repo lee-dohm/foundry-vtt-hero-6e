@@ -1,9 +1,10 @@
 {
   "name": "hero-6e",
   "title": "HERO System 6th Edition",
-  "description": "HERO System 6th Edition game system",
+  "description": "A game system for the HERO System 6th Edition role playing rules",
   "version": "0.1.0",
   "minimumCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
   "author": "@lee-dohm",
   "scripts": [
