@@ -2,15 +2,14 @@
   "name": "foundry-vtt-hero-6e",
   "version": "0.1.0",
   "description": "HERO System 6th Edition game system for Foundry VTT",
-  "main": "modules/hero-6e.js",
+  "main": "modules/hero6e.js",
   "scripts": {
-    "build": "npm run build-styles && npx tsc",
+    "build": "npm run build-styles",
     "build-styles": "npx lessc less/styles.less styles/hero6e.css",
     "ci": "npm run format-check && npm run lint && npm test",
-    "format": "prettier --write **/*.ts **/*.md **/*.yaml **/*.yml",
-    "format-check": "prettier --check **/*.ts **/*.md **/*.yaml **/*.yml",
-    "lint": "npx eslint src/**/*.ts",
-    "start": "npx ncc run ./src/main.ts",
+    "format": "prettier --write **/*.js **/*.md **/*.yaml **/*.yml",
+    "format-check": "prettier --check **/*.js **/*.md **/*.yaml **/*.yml",
+    "lint": "npx eslint src/**/*.js",
     "test": "jest"
   },
   "repository": {
@@ -24,18 +23,12 @@
   },
   "homepage": "https://github.com/lee-dohm/foundry-vtt-hero-6e#readme",
   "devDependencies": {
-    "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.28",
-    "@typescript-eslint/parser": "^4.15.1",
     "eslint": "^7.20.0",
     "eslint-plugin-github": "^4.1.1",
     "eslint-plugin-jest": "^24.1.5",
-    "foundry-pc-types": "gitlab:foundry-projects/foundry-pc/foundry-pc-types",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
     "less": "^4.1.1",
-    "prettier": "^2.2.1",
-    "ts-jest": "^26.5.1",
-    "typescript": "^4.1.5"
+    "prettier": "^2.2.1"
   }
 }
