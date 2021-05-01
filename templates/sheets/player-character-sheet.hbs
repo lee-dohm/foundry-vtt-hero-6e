@@ -6,27 +6,27 @@
 
   <section class="characteristics-block column">
     <div class="section-header row">{{localize "hero6e.characteristics"}}</div>
-    <div class="row">
-      <div class="column mx-2">
-        <div class="column-header">{{localize "hero6e.value"}}</div>
-        {{#each data.characteristics}}
-        <div class="text-right">{{this.value}}</div>
-        {{/each}}
-      </div>
-      <div class="column mx-2">
-        <div class="column-header">{{localize "hero6e.characteristic"}}</div>
-        {{#each data.characteristics}}
-        <div>{{localize (concat "hero6e.characteristicNames." @key)}}</div>
-        {{/each}}
-      </div>
-      <div class="column mx-2">
-        <div class="column-header">{{localize "hero6e.skill.roll"}}</div>
-        {{#each data.characteristics}}
-        {{#if (eq this.category "primary")}}
-        <div></div>
-        {{/if}}
-        {{/each}}
-      </div>
-    </div>
+    <table>
+      <tr>
+        <th>{{localize "hero6e.value"}}</th>
+        <th>{{localize "hero6e.characteristic"}}</th>
+        <th>{{localize "hero6e.skill.roll"}}</th>
+      </tr>
+      {{#each data.characteristics}}
+      <tr>
+        <td>
+          <input name="data.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
+        </td>
+        <td>
+          {{localize (concat "hero6e.characteristicNames." @key)}}
+        </td>
+        <td>
+          {{#if (eq this.category "primary")}}
+          <div></div>
+          {{/if}}
+        </td>
+      </tr>
+      {{/each}}
+    </table>
   </section>
 </form>
