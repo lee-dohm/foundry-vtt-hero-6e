@@ -8,86 +8,86 @@
       "creature": {
         "characteristics": {
           "str": {
-            "value": 10,
-            "max": 10
+            "category": "primary",
+            "value": 10
           },
           "dex": {
-            "value": 10,
-            "max": 10
+            "category": "primary",
+            "value": 10
           },
           "con": {
-            "value": 10,
-            "max": 10
+            "category": "primary",
+            "value": 10
           },
           "int": {
-            "value": 10,
-            "max": 10
+            "category": "primary",
+            "value": 10
           },
           "ego": {
-            "value": 10,
-            "max": 10
+            "category": "primary",
+            "value": 10
           },
           "pre": {
-            "value": 10,
-            "max": 10
+            "category": "primary",
+            "value": 10
           },
           "ocv": {
-            "value": 3,
-            "max": 3
+            "category": "secondary",
+            "value": 3
           },
           "dcv": {
-            "value": 3,
-            "max": 3
+            "category": "secondary",
+            "value": 3
           },
           "omcv": {
-            "value": 3,
-            "max": 3
+            "category": "secondary",
+            "value": 3
           },
           "dmcv": {
-            "value": 3,
-            "max": 3
+            "category": "secondary",
+            "value": 3
           },
           "spd": {
-            "value": 2,
-            "max": 2
+            "category": "secondary",
+            "value": 2
           },
           "pd": {
-            "value": 2,
-            "max": 2
+            "category": "secondary",
+            "value": 2
           },
           "ed": {
-            "value": 2,
-            "max": 2
+            "category": "secondary",
+            "value": 2
           },
           "rec": {
-            "value": 4,
-            "max": 4
+            "category": "secondary",
+            "value": 4
           },
           "end": {
+            "category": "secondary",
             "value": 20,
             "max": 20
           },
           "body": {
+            "category": "secondary",
             "value": 10,
             "max": 10
           },
           "stun": {
+            "category": "secondary",
             "value": 20,
             "max": 20
           }
         },
         "movement": {
           "run": {
-            "value": 12,
-            "max": 12
+            "value": 12
           },
           "swim": {
-            "value": 4,
-            "max": 4
+            "value": 4
           },
           "leap": {
-            "value": 4,
-            "max": 4
+            "value": 4
           }
         }
       }
@@ -129,7 +129,7 @@
       ],
       "roll": {
         "type": "characteristic",
-        "characteristic": "@characteristics.int",
+        "characteristic": "int",
         "bonus": 0
       }
     }

@@ -22,6 +22,7 @@
     },
     "points": "Points",
     "skill": {
+      "base": "Base",
       "bonus": "Bonus",
       "roll": "Roll",
       "rollType": "Roll Type",

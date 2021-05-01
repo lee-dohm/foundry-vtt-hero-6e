@@ -1,4 +1,5 @@
 import { hero6e } from "./config.js"
+
 import HeroItemSheet from "./sheets/hero-item-sheet.js"
 import HeroPlayerCharacterSheet from "./sheets/hero-player-character-sheet.js"
 

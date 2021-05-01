@@ -3,30 +3,26 @@
     <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
   </header>
   <div class="sheet-content">
-    <table>
-      <tr>
-        <th>{{localize "hero6e.points"}}</th>
-        <th>{{localize "hero6e.skill.rollType"}}</th>
-        {{#if (eq data.roll.type "characteristic")}}
-        <th>{{localize "hero6e.characteristic"}}</th>
-        {{/if}}
-      </tr>
-      <tr>
-        <td><input name="data.points" type="text" value="{{data.points}}" data-dtype="Number" /></td>
-        <td>
-          <select name="data.roll.type">
-            {{selectOptions config.skillRollTypes selected=data.roll.type localize=true}}
-          </select>
-        </td>
-        {{#if (eq data.roll.type "characteristic")}}
-        <td>
-          <select name="data.roll.characteristic">
-            {{selectOptions config.skillRollCharacteristics selected=data.roll.characteristic localize=true}}
-          </select>
-        </td>
-        {{/if}}
-      </tr>
-    </table>
+    <div class="item-stats">
+      <div class="item-stat">
+        <label>{{localize "hero6e.points"}}</label>
+        <input name="data.points" type="text" value="{{data.points}}" data-dtype="Number" />
+      </div>
+      <div class="item-stat">
+        <label>{{localize "hero6e.skill.rollType"}}</label>
+        <select name="data.roll.type">
+          {{selectOptions config.skillRollTypes selected=data.roll.type localize=true}}
+        </select>
+      </div>
+      {{#if (eq data.roll.type "characteristic")}}
+      <div class="item-stat">
+        <label>{{localize "hero6e.characteristic"}}</label>
+        <select name="data.roll.characteristic">
+          {{selectOptions config.skillRollCharacteristics selected=data.roll.characteristic localize=true}}
+        </select>
+      </div>
+      {{/if}}
+    </div>
     {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
   </div>
 </form>
