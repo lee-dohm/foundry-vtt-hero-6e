@@ -105,6 +105,8 @@
   },
   "Item": {
     "types": [
+      "complication",
+      "equipment",
       "power",
       "skill"
     ],
@@ -116,11 +118,26 @@
         "points": 0
       }
     },
-    "power": {
+    "complication": {
       "templates": [
         "itemDescription",
         "itemPointCost"
       ]
+    },
+    "equipment": {
+      "templates": [
+        "itemDescription"
+      ],
+      "cost": 0,
+      "quantity": 0,
+      "weight": 0
+    },
+    "power": {
+      "templates": [
+        "itemDescription",
+        "itemPointCost"
+      ],
+      "endCost": 0
     },
     "skill": {
       "templates": [
