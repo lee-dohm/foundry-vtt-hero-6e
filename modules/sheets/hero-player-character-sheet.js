@@ -11,9 +11,6 @@ export default class HeroPlayerCharacterSheet extends ActorSheet {
 
     data.config = CONFIG.hero6e
 
-    // data.primaryCharacteristics = data.characteristics.filter(c => c.category === "primary")
-    // data.secondaryCharacteristics = data.characteristics.filter(c => c.category === "secondary")
-
     return data
   }
 }
