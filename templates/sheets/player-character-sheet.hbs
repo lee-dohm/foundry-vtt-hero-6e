@@ -4,18 +4,29 @@
     <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
   </header>
 
-  <section class="characteristics-block">
-    <table>
-      <tr>
-        <th>{{localize "hero6e.characteristic"}}</th>
-        <th>{{localize "hero6e.value"}}</th>
-        <th>{{localize "hero6e.skill.roll"}}</th>
-      </tr>
-      <tr>
-        <td>{{localize "hero6e.characteristics.str"}}</td>
-        <td>{{actor.data.characteristics.str.value}}</td>
-        <td></td>
-      </tr>
-    </table>
+  <section class="characteristics-block column">
+    <div class="section-header row">{{localize "hero6e.characteristics"}}</div>
+    <div class="row">
+      <div class="column mx-2">
+        <div class="column-header">{{localize "hero6e.value"}}</div>
+        {{#each data.characteristics}}
+        <div>{{this.value}}</div>
+        {{/each}}
+      </div>
+      <div class="column mx-2">
+        <div class="column-header">{{localize "hero6e.characteristic"}}</div>
+        {{#each data.characteristics}}
+        <div>{{localize (concat "hero6e.characteristicNames." @key)}}</div>
+        {{/each}}
+      </div>
+      <div class="column mx-2">
+        <div class="column-header">{{localize "hero6e.skill.roll"}}</div>
+        {{#each data.characteristics}}
+        {{#if (eq this.category "primary")}}
+        <div></div>
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
   </section>
 </form>

@@ -13,4 +13,8 @@ Hooks.once("init", function () {
 
   Items.unregisterSheet("core", ItemSheet)
   Items.registerSheet("hero6e", HeroItemSheet, { makedefault: true })
+
+  Handlebars.registerHelper("concat", (a, b) => {
+    return `${a}${b}`
+  })
 })

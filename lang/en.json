@@ -1,7 +1,7 @@
 {
   "hero6e": {
     "characteristic": "Characteristic",
-    "characteristics": {
+    "characteristicNames": {
       "str": "STR",
       "dex": "DEX",
       "con": "CON",
@@ -20,6 +20,7 @@
       "body": "BODY",
       "stun": "STUN"
     },
+    "characteristics": "Characteristics",
     "points": "Points",
     "skill": {
       "base": "Base",
@@ -31,6 +32,7 @@
         "none": "N/A",
         "raw": "Raw"
       }
-    }
+    },
+    "value": "Value"
   }
 }
