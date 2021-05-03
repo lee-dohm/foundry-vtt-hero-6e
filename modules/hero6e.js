@@ -1,5 +1,7 @@
 import { hero6e } from "./config.js"
 
+import HeroHandlebarsHelpers from "./hero-handlebars-helpers.js"
+
 import HeroItemSheet from "./sheets/hero-item-sheet.js"
 import HeroActorSheet from "./sheets/hero-actor-sheet.js"
 
@@ -14,7 +16,5 @@ Hooks.once("init", function () {
   Items.unregisterSheet("core", ItemSheet)
   Items.registerSheet("hero6e", HeroItemSheet, { makedefault: true })
 
-  Handlebars.registerHelper("concat", (a, b) => {
-    return `${a}${b}`
-  })
+  HeroHandlebarsHelpers.registerHelpers()
 })
