@@ -5,12 +5,12 @@
   </header>
 
   <section class="characteristics-block column">
-    <div class="section-header row">{{localize "hero6e.characteristics"}}</div>
+    <div class="section-header row">{{localize "hero6e.characteristic.plural"}}</div>
     <table>
       <tr>
-        <th>{{localize "hero6e.value"}}</th>
-        <th>{{localize "hero6e.characteristic"}}</th>
-        <th>{{localize "hero6e.skill.roll"}}</th>
+        <th>{{localize "hero6e.characteristic.value"}}</th>
+        <th>{{localize "hero6e.characteristic.singular"}}</th>
+        <th>{{localize "hero6e.characteristic.roll"}}</th>
       </tr>
       {{#each data.characteristics}}
       <tr>
@@ -18,7 +18,7 @@
           <input name="data.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
         </td>
         <td>
-          {{localize (concat "hero6e.characteristicNames." @key)}}
+          {{localize (concat "hero6e.characteristic.names." @key)}}
         </td>
         <td>
           {{#if (eq this.category "primary")}}

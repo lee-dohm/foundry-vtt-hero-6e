@@ -1,26 +1,30 @@
 {
   "hero6e": {
-    "characteristic": "Characteristic",
-    "characteristicNames": {
-      "str": "STR",
-      "dex": "DEX",
-      "con": "CON",
-      "int": "INT",
-      "ego": "EGO",
-      "pre": "PRE",
-      "ocv": "OCV",
-      "dcv": "DCV",
-      "omcv": "OMCV",
-      "dmcv": "DMCV",
-      "spd": "SPD",
-      "pd": "PD",
-      "ed": "ED",
-      "rec": "REC",
-      "end": "END",
-      "body": "BODY",
-      "stun": "STUN"
+    "characteristic": {
+      "names": {
+        "str": "STR",
+        "dex": "DEX",
+        "con": "CON",
+        "int": "INT",
+        "ego": "EGO",
+        "pre": "PRE",
+        "ocv": "OCV",
+        "dcv": "DCV",
+        "omcv": "OMCV",
+        "dmcv": "DMCV",
+        "spd": "SPD",
+        "pd": "PD",
+        "ed": "ED",
+        "rec": "REC",
+        "end": "END",
+        "body": "BODY",
+        "stun": "STUN"
+      },
+      "plural": "Characteristics",
+      "roll": "Roll",
+      "singular": "Characteristic",
+      "value": "Value"
     },
-    "characteristics": "Characteristics",
     "points": "Points",
     "skill": {
       "base": "Base",
