@@ -16,7 +16,7 @@
       </div>
       {{#if (eq data.roll.type "characteristic")}}
       <div class="item-stat">
-        <label>{{localize "hero6e.characteristic"}}</label>
+        <label>{{localize "hero6e.characteristic.singular"}}</label>
         <select name="data.roll.characteristic">
           {{selectOptions config.skillRollCharacteristics selected=data.roll.characteristic localize=true}}
         </select>
