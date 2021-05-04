@@ -21,8 +21,8 @@
           {{localize (concat "hero6e.characteristic.names." @key)}}
         </td>
         <td>
-          {{#if (eq this.category "primary")}}
-          <div></div>
+          {{#if this.roll}}
+          {{this.roll}}-
           {{/if}}
         </td>
       </tr>
