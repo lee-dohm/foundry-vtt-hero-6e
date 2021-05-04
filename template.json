@@ -111,22 +111,27 @@
       "skill"
     ],
     "templates": {
-      "itemDescription": {
+      "description": {
         "description": ""
       },
-      "itemPointCost": {
+      "displayName": {
+        "name": ""
+      },
+      "pointCost": {
         "points": 0
       }
     },
     "complication": {
       "templates": [
-        "itemDescription",
-        "itemPointCost"
+        "description",
+        "displayName",
+        "pointCost"
       ]
     },
     "equipment": {
       "templates": [
-        "itemDescription"
+        "description",
+        "displayName"
       ],
       "cost": 0,
       "quantity": 0,
@@ -134,15 +139,17 @@
     },
     "power": {
       "templates": [
-        "itemDescription",
-        "itemPointCost"
+        "description",
+        "displayName",
+        "pointCost"
       ],
       "endCost": 0
     },
     "skill": {
       "templates": [
-        "itemDescription",
-        "itemPointCost"
+        "description",
+        "displayName",
+        "pointCost"
       ],
       "roll": {
         "type": "characteristic",
