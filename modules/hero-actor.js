@@ -1,4 +1,12 @@
+/**
+ * Hero game system Actor logic.
+ */
 export default class HeroActor extends Actor {
+  /**
+   * Apply final transformations to the Actor data after all effects have been applied.
+   *
+   * @override
+   */
   prepareDerivedData() {
     this._calculateCharacteristicRolls()
   }
