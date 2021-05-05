@@ -15,7 +15,7 @@
       {{#each data.characteristics}}
       <tr>
         <td>
-          <input name="data.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
+          <input name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
         </td>
         <td>
           {{localize (concat "hero6e.characteristic.names." @key)}}
@@ -25,6 +25,22 @@
           {{this.roll}}-
           {{/if}}
         </td>
+      </tr>
+      {{/each}}
+    </table>
+  </section>
+
+  <section class="skills-block column">
+    <div class="section-header row">{{localize "hero6e.skill.plural"}}</div>
+    <table>
+      <tr>
+        <th>{{localize "hero6e.skill.singular"}}</th>
+        <th>{{localize "hero6e.skill.roll"}}</th>
+      </tr>
+      {{#each actor.items}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td></td>
       </tr>
       {{/each}}
     </table>

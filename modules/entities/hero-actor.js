@@ -2,6 +2,12 @@
  * Hero game system Actor logic.
  */
 export default class HeroActor extends Actor {
+  get itemTypes() {
+    console.log(`hero6e | Retrieving HeroActor.itemTypes`)
+
+    return super.itemTypes
+  }
+
   /**
    * Apply final transformations to the Actor data after all effects have been applied.
    *

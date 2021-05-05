@@ -29,13 +29,15 @@
     "skill": {
       "base": "Base",
       "bonus": "Bonus",
+      "plural": "Skills",
       "roll": "Roll",
       "rollType": "Roll Type",
       "rollTypes": {
         "characteristic": "Characteristic",
         "none": "N/A",
         "raw": "Raw"
-      }
+      },
+      "singular": "Skill"
     },
     "value": "Value"
   }
