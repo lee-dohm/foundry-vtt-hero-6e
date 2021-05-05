@@ -1,3 +1,5 @@
+import { dump } from '../logging.js'
+
 /**
  * Base actor sheet for the Hero game system.
  */
@@ -6,10 +8,26 @@ export default class HeroActorSheet extends ActorSheet {
    * Default options for Hero actor sheets.
    */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    const options = mergeObject(super.defaultOptions, {
+      baseApplication: "HeroActorSheet",
       template: "systems/hero6e/templates/sheets/player-sheet.hbs",
       classes: ["hero6e", "sheet", "actor", "player"]
     })
+
+    dump('Retrieving HeroActorSheet.defaultOptions', options)
+
+    return options
+  }
+
+  /**
+   * Reference to the actor object.
+   */
+  get actor() {
+    const actor = super.actor
+
+    dump('Retrieving HeroActorSheet.actor', actor)
+
+    return actor
   }
 
   /**
