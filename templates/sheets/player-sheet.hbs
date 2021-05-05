@@ -37,13 +37,11 @@
         <th>{{localize "hero6e.skill.singular"}}</th>
         <th>{{localize "hero6e.skill.roll"}}</th>
       </tr>
-      {{#each actor.items}}
-      {{#if (eq this.type "skill")}}
+      {{#each data.skills}}
       <tr>
         <td>{{this.name}}</td>
         <td></td>
       </tr>
-      {{/if}}
       {{/each}}
     </table>
   </section>

@@ -2,19 +2,17 @@
  * Hero game system Actor logic.
  */
 export default class HeroActor extends Actor {
-  get itemTypes() {
-    console.log(`hero6e | Retrieving HeroActor.itemTypes`)
-
-    return super.itemTypes
-  }
-
   /**
-   * Apply final transformations to the Actor data after all effects have been applied.
+   * Apply final transformations to the Actor data after all effects have been
+   * applied.
    *
    * @override
    */
   prepareDerivedData() {
+    super.prepareDerivedData()
+
     this._calculateCharacteristicRolls()
+    this._prepItemDataCollections()
   }
 
   get _actorData() {
@@ -33,5 +31,12 @@ export default class HeroActor extends Actor {
         characteristic.roll = 9 + Math.round(characteristic.value / 5)
       }
     }
+  }
+
+  _prepItemDataCollections() {
+    this._actorGameData.complications = this.itemTypes.complication
+    this._actorGameData.equipment = this.itemTypes.equipment
+    this._actorGameData.powers = this.itemTypes.power
+    this._actorGameData.skills = this.itemTypes.skill
   }
 }
