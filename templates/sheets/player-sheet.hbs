@@ -40,7 +40,11 @@
       {{#each data.skills}}
       <tr>
         <td>{{this.name}}</td>
-        <td></td>
+        <td>
+          {{#if (and this.roll this.roll.base)}}
+          {{this.roll.base}}-
+          {{/if}}
+        </td>
       </tr>
       {{/each}}
     </table>
