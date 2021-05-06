@@ -1,4 +1,5 @@
 import { dump } from '../logging.js'
+import { HeroConfig } from '../config.js'
 
 /**
  * Base actor sheet for the Hero game system.
@@ -38,7 +39,7 @@ export default class HeroActorSheet extends ActorSheet {
   getData() {
     const data = super.getData()
 
-    data.config = CONFIG.hero6e
+    data.config = CONFIG.hero6e as HeroConfig
 
     return data
   }

@@ -6,7 +6,7 @@
  * @param {String} description Description of what is being dumped
  * @param {*} obj Object to dump to the log
  */
-export function dump(description, obj) {
+export function dump(description: string, obj: any) {
   console.debug(`hero6e | ${description}`)
   console.debug(JSON.parse(JSON.stringify(obj)))
 }

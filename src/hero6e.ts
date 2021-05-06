@@ -16,10 +16,10 @@ Hooks.once("init", function () {
   CONFIG.Item.entityClass = HeroItem
 
   Actors.unregisterSheet("core", ActorSheet)
-  Actors.registerSheet("hero6e", HeroActorSheet, { makedefault: true })
+  Actors.registerSheet("hero6e", HeroActorSheet, { makeDefault: true })
 
   Items.unregisterSheet("core", ItemSheet)
-  Items.registerSheet("hero6e", HeroItemSheet, { makedefault: true })
+  Items.registerSheet("hero6e", HeroItemSheet, { makeDefault: true })
 
   HeroHandlebarsHelpers.registerHelpers()
 })

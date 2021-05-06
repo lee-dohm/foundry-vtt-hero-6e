@@ -1,7 +1,9 @@
+import { HeroConfig } from "../config.js"
+
 /**
  * Base item sheet for the Hero game system.
  */
-export default class HeroItemSheet extends ItemSheet {
+ export default class HeroItemSheet extends ItemSheet {
   /**
    * Default options for Hero item sheets.
    */
@@ -27,7 +29,7 @@ export default class HeroItemSheet extends ItemSheet {
   getData() {
     const data = super.getData()
 
-    data.config = CONFIG.hero6e
+    data.config = CONFIG.hero6e as HeroConfig
 
     return data
   }

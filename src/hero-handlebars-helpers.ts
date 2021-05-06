@@ -1,15 +1,15 @@
 /**
  * Hero game system specific Handlebars helper functions.
  */
-export default class HeroHandlebarsHelpers {
+ export default class HeroHandlebarsHelpers {
   /**
-   * Concatenaces the string representation of two values.
+   * Concatenates the string representation of two values.
    *
    * @param {*} a
    * @param {*} b
    * @returns Concatenated representation of the two values
    */
-  static concat(a, b) {
+  static concat(a: any, b: any): string {
     return `${a}${b}`
   }
 

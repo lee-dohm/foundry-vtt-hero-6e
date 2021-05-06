@@ -1,7 +1,11 @@
+import { HeroActorData } from '../actor-data'
+import { HeroConfig } from '../config.js'
+import HeroItem from './hero-item.js'
+
 /**
  * Hero game system Actor logic.
  */
-export default class HeroActor extends Actor {
+ export default class HeroActor extends Actor<HeroActorData, HeroItem> {
   /**
    * Apply final transformations to the Actor data after all effects have been
    * applied.
@@ -25,7 +29,7 @@ export default class HeroActor extends Actor {
 
   _calculateCharacteristicRolls() {
     for (const charName of Object.keys(this._actorGameData.characteristics)) {
-      if (Object.keys(CONFIG.hero6e.skillRollCharacteristics).includes(charName)) {
+      if (Object.keys((CONFIG.hero6e as HeroConfig).skillRollCharacteristics).includes(charName)) {
         const characteristic = this._actorGameData.characteristics[charName]
 
         characteristic.roll = 9 + Math.round(characteristic.value / 5)
