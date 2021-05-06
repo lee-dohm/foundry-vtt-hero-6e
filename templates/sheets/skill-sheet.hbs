@@ -2,8 +2,8 @@
   <header class="sheet-header">
     <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
   </header>
-  <div class="sheet-content">
-    <div class="item-stats">
+  <div class="sheet-content flexrow">
+    <div class="item-stats flexcol">
       <div class="item-stat">
         <label>{{localize "hero6e.points"}}</label>
         <input name="data.points" type="text" value="{{data.points}}" data-dtype="Number" />
@@ -23,6 +23,7 @@
       </div>
       {{/if}}
     </div>
+
     {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
   </div>
 </form>
