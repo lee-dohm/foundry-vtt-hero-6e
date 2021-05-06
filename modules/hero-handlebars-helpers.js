@@ -17,6 +17,6 @@ export default class HeroHandlebarsHelpers {
    * Registers all of the Handlebars helper functions.
    */
   static registerHelpers() {
-    Handlebars.registerHelper("concat", this.concat)
+    Handlebars.registerHelper('concat', this.concat)
   }
 }
