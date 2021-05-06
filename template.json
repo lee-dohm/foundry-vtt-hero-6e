@@ -8,73 +8,56 @@
       "creature": {
         "characteristics": {
           "str": {
-            "category": "primary",
             "value": 10
           },
           "dex": {
-            "category": "primary",
             "value": 10
           },
           "con": {
-            "category": "primary",
             "value": 10
           },
           "int": {
-            "category": "primary",
             "value": 10
           },
           "ego": {
-            "category": "primary",
             "value": 10
           },
           "pre": {
-            "category": "primary",
             "value": 10
           },
           "ocv": {
-            "category": "secondary",
             "value": 3
           },
           "dcv": {
-            "category": "secondary",
             "value": 3
           },
           "omcv": {
-            "category": "secondary",
             "value": 3
           },
           "dmcv": {
-            "category": "secondary",
             "value": 3
           },
           "spd": {
-            "category": "secondary",
             "value": 2
           },
           "pd": {
-            "category": "secondary",
             "value": 2
           },
           "ed": {
-            "category": "secondary",
             "value": 2
           },
           "rec": {
-            "category": "secondary",
             "value": 4
           },
           "end": {
-            "category": "secondary",
             "value": 20,
             "max": 20
           },
           "body": {
-            "category": "secondary",
             "value": 10,
             "max": 10
           },
           "stun": {
-            "category": "secondary",
             "value": 20,
             "max": 20
           }
