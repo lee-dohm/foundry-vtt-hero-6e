@@ -4,49 +4,51 @@
     <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
   </header>
 
-  <section class="characteristics-block flexcol">
-    <div class="section-header flexrow">{{localize "hero6e.characteristic.plural"}}</div>
-    <table>
-      <tr>
-        <th>{{localize "hero6e.characteristic.value"}}</th>
-        <th>{{localize "hero6e.characteristic.singular"}}</th>
-        <th>{{localize "hero6e.characteristic.roll"}}</th>
-      </tr>
-      {{#each data.characteristics}}
-      <tr>
-        <td>
-          <input name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
-        </td>
-        <td>
-          {{localize (concat "hero6e.characteristic.names." @key)}}
-        </td>
-        <td>
-          {{#if this.roll}}
-          {{this.roll}}-
-          {{/if}}
-        </td>
-      </tr>
-      {{/each}}
-    </table>
-  </section>
+  <div class="flexrow">
+    <section class="characteristics-block flexcol">
+      <div class="section-header flexrow">{{localize "hero6e.characteristic.plural"}}</div>
+      <table>
+        <tr>
+          <th>{{localize "hero6e.characteristic.value"}}</th>
+          <th>{{localize "hero6e.characteristic.singular"}}</th>
+          <th>{{localize "hero6e.characteristic.roll"}}</th>
+        </tr>
+        {{#each data.characteristics}}
+        <tr>
+          <td>
+            <input name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
+          </td>
+          <td>
+            {{localize (concat "hero6e.characteristic.names." @key)}}
+          </td>
+          <td>
+            {{#if this.roll}}
+            {{this.roll}}-
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+    </section>
 
-  <section class="skills-block flexcol">
-    <div class="section-header flexrow">{{localize "hero6e.skill.plural"}}</div>
-    <table>
-      <tr>
-        <th>{{localize "hero6e.skill.singular"}}</th>
-        <th>{{localize "hero6e.skill.roll"}}</th>
-      </tr>
-      {{#each data.skills}}
-      <tr>
-        <td>{{this.name}}</td>
-        <td>
-          {{#if (and this.roll this.roll.base)}}
-          {{this.roll.base}}-
-          {{/if}}
-        </td>
-      </tr>
-      {{/each}}
-    </table>
-  </section>
+    <section class="skills-block flexcol">
+      <div class="section-header flexrow">{{localize "hero6e.skill.plural"}}</div>
+      <table>
+        <tr>
+          <th>{{localize "hero6e.skill.singular"}}</th>
+          <th>{{localize "hero6e.skill.roll"}}</th>
+        </tr>
+        {{#each data.skills}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>
+            {{#if (and this.roll this.roll.base)}}
+            {{this.roll.base}}-
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+    </section>
+  </div>
 </form>
