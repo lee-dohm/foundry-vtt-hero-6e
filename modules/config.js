@@ -1,4 +1,10 @@
+import { rollNormalDamage } from './damage.js'
+
 export const hero6e = {}
+
+hero6e.damage = {
+  rollNormal: rollNormalDamage
+}
 
 hero6e.skillRollCharacteristics = {
   str: 'STR',
