@@ -1,4 +1,4 @@
-const DAMAGE_PATTERN = /^(?<full>\d+)?(?<half>\.5|½)?d6(?<mod>(\+|-)1)?$/i
+const DAMAGE_PATTERN = /^(?<full>\d+)?(?<half>\.5|½)?d6(?<mod>(\+|-)\d+)?$/i
 
 /**
  * Raised when an invalid damage formula is given to a roll damage function.
@@ -9,8 +9,33 @@ export class InvalidDamageFormulaError extends Error {
   constructor(formula) {
     const message = `Invalid damage formula: ${formula}`
     super(message)
-    this.name = "InvalidDamageFormulaError"
+    this.name = 'InvalidDamageFormulaError'
   }
+}
+
+/**
+ * Rolls and calculates the amonut of `STUN` and `BODY` damage indicated by the dice.
+ *
+ * @param {String} formula Killing damage dice formula
+ * @param {String} stunMultFormula Stun multiplier dice formula
+ * @returns {HeroDamage} An object describing the amonut of `STUN`, `BODY`,
+ * and type of damage.
+ */
+export function rollKillingDamage(formula, stunMultFormula = CONFIG.hero6e.damage.stunMultFormula) {
+  const match = formula.match(DAMAGE_PATTERN)
+
+  if (!match) {
+    throw new InvalidDamageFormulaError(formula)
+  }
+
+  const damageFormula = buildDamageFormula(match.groups)
+  const damageRoll = new Roll(damageFormula)
+  damageRoll.evaluate()
+
+  const stunMultRoll = new Roll(stunMultFormula)
+  stunMultRoll.evaluate()
+
+  return calculateKillingDamage(damageRoll, stunMultRoll)
 }
 
 /**
@@ -33,30 +58,45 @@ export function rollNormalDamage(formula) {
   return calculateNormalDamage(damageRoll)
 }
 
-function buildDamageFormula({full, half, mod}) {
+function buildDamageFormula({ full, half, mod }) {
   const fullDice = `${full}d6[full dice]`
   const halfDice = half ? '1d6[half dice]' : ''
 
   return `${fullDice}${halfDice}${mod}`
 }
 
+function calculateKillingDamage(damageRoll, stunMultRoll) {
+  let body = damageRoll.total
+
+  for (const term of damageRoll.terms) {
+    if (term instanceof Die && term.options.flavor === 'halfdice') {
+      body -= term.total
+      body += Math.ceil(term.total / 2)
+    }
+  }
+
+  let stun = body * stunMultRoll.total
+
+  return { body, stun, damageRoll, stunMultRoll, type: 'KILLING' }
+}
+
 function calculateNormalDamage(roll) {
-  let stun = 0
+  let stun = roll.total
   let body = 0
 
   for (const term of roll.terms) {
     if (term instanceof Die) {
-      if (term.options.flavor === "fulldice") {
-        stun += term.total
+      if (term.options.flavor === 'fulldice') {
         body += countNormalBodyFullDice(term)
-      } else if (term.options.flavor === "halfdice") {
+      } else if (term.options.flavor === 'halfdice') {
+        stun -= term.total
         stun += Math.ceil(term.total / 2)
         body += countNormalBodyHalfDice(term)
       }
     }
   }
 
-  return { body, stun, roll, type: "NORMAL" }
+  return { body, stun, roll, type: 'NORMAL' }
 }
 
 function countNormalBodyFullDice(term) {
