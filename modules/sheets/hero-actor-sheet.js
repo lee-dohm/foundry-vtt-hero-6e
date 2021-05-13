@@ -1,4 +1,4 @@
-import { dump } from '../logging.js'
+import * as HeroLog from '../logging.js'
 
 /**
  * Base actor sheet for the Hero game system.
@@ -14,7 +14,7 @@ export default class HeroActorSheet extends ActorSheet {
       classes: ["hero6e", "sheet", "actor", "player"]
     })
 
-    dump('Retrieving HeroActorSheet.defaultOptions', options)
+    HeroLog.dump('Retrieving HeroActorSheet.defaultOptions', options)
 
     return options
   }
@@ -25,7 +25,7 @@ export default class HeroActorSheet extends ActorSheet {
   get actor() {
     const actor = super.actor
 
-    dump('Retrieving HeroActorSheet.actor', actor)
+    HeroLog.dump('Retrieving HeroActorSheet.actor', actor)
 
     return actor
   }
