@@ -1,5 +1,6 @@
 import { HERO_CONFIG } from './config.js'
 
+/** Regex used to match and parse a Hero damage formula. */
 const DAMAGE_PATTERN = /^(?<full>\d+)?(?<half>\.5|½)?d6(?<mod>(\+|-)\d+)?$/i
 
 /**
