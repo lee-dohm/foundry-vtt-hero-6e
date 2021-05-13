@@ -35,9 +35,9 @@ import * as HeroMath from '../math.js'
  * * `description` -- Description of the limitation
  */
 export default class Power {
-  constructor({name, description, baseCost, endCost, adders, advantages, limitations}) {
-    this.name = name ?? ""
-    this.description = description ?? ""
+  constructor({ name, description, baseCost, endCost, adders, advantages, limitations }) {
+    this.name = name ?? ''
+    this.description = description ?? ''
     this.baseCost = baseCost ?? 1
     this.endCost = endCost ?? 0
     this.adders = adders ?? []
@@ -66,7 +66,7 @@ export default class Power {
       advantageQuarters += advantage.quarters
     }
 
-    cost = HeroMath.round(cost * (advantageQuarters / 4), "down")
+    cost = HeroMath.round(cost * (advantageQuarters / 4), 'down')
 
     return cost < 1 ? 1 : cost
   }
@@ -86,7 +86,7 @@ export default class Power {
       limitationQuarters += limitation.quarters
     }
 
-    cost = HeroMath.round(cost / (limitationQuarters / 4), "down")
+    cost = HeroMath.round(cost / (limitationQuarters / 4), 'down')
 
     return cost < 1 ? 1 : cost
   }
