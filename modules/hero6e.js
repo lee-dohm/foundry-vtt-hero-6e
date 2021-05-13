@@ -11,7 +11,7 @@ import HeroActorSheet from './sheets/hero-actor-sheet.js'
 Hooks.once('init', function () {
   console.log('hero6e | Initializing Hero 6th Edition game system')
 
-  CONFIG.hero6e = HERO_CONFIG
+  CONFIG.HERO = HERO_CONFIG
   CONFIG.Actor.entityClass = HeroActor
   CONFIG.Item.entityClass = HeroItem
 
