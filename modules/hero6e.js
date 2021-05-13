@@ -1,4 +1,4 @@
-import { hero6e } from './config.js'
+import { HERO_CONFIG } from './config.js'
 
 import HeroHandlebarsHelpers from './hero-handlebars-helpers.js'
 
@@ -11,7 +11,7 @@ import HeroActorSheet from './sheets/hero-actor-sheet.js'
 Hooks.once('init', function () {
   console.log('hero6e | Initializing Hero 6th Edition game system')
 
-  CONFIG.hero6e = hero6e
+  CONFIG.hero6e = HERO_CONFIG
   CONFIG.Actor.entityClass = HeroActor
   CONFIG.Item.entityClass = HeroItem
 

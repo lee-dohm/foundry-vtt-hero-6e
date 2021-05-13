@@ -1,4 +1,4 @@
-import { hero6e as HERO_CONFIG } from './config.js'
+import { HERO_CONFIG } from './config.js'
 
 const DAMAGE_PATTERN = /^(?<full>\d+)?(?<half>\.5|½)?d6(?<mod>(\+|-)\d+)?$/i
 

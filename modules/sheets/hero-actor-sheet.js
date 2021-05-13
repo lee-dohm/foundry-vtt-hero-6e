@@ -38,7 +38,7 @@ export default class HeroActorSheet extends ActorSheet {
   getData() {
     const data = super.getData()
 
-    data.config = CONFIG.hero6e
+    data.config = CONFIG.HERO
 
     return data
   }
