@@ -5,8 +5,19 @@
  *
  * @param {String} description Description of what is being dumped
  * @param {*} obj Object to dump to the log
+ * @param {*} level Log level to use when dumping the information, defaults to `debug`
  */
-export function dump(description, obj) {
-  console.debug(`hero6e | ${description}`)
-  console.debug(JSON.parse(JSON.stringify(obj)))
+export function dump(description, obj, level) {
+  let fn = null
+
+  if (typeof level === 'function') {
+    fn = level
+  } else if (level === 'log' || level === 'info') {
+    fn = console.log
+  } else {
+    fn = console.debug
+  }
+
+  fn(`hero6e | ${description}`)
+  fn(JSON.parse(JSON.stringify(obj)))
 }
