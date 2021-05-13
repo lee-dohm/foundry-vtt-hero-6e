@@ -1,3 +1,5 @@
+import * as HeroMath from '../math.js'
+
 /**
  * Describes a power.
  *
@@ -36,7 +38,7 @@ export default class Power {
   constructor({name, description, baseCost, endCost, adders, advantages, limitations}) {
     this.name = name ?? ""
     this.description = description ?? ""
-    this.baseCost = baseCost ?? 0
+    this.baseCost = baseCost ?? 1
     this.endCost = endCost ?? 0
     this.adders = adders ?? []
     this.advantages = advantages ?? []
@@ -49,6 +51,8 @@ export default class Power {
    * The active cost is the base cost plus all adders and advantages. Also used as the
    * basis for a number of other things like the effect of **Drain** or calculating the
    * base `endCost`.
+   *
+   * The minimum active cost is 1.
    */
   get activeCost() {
     let cost = this.baseCost
@@ -62,15 +66,17 @@ export default class Power {
       advantageQuarters += advantage.quarters
     }
 
-    cost = Math.round(cost * (advantageQuarters / 4))
+    cost = HeroMath.round(cost * (advantageQuarters / 4), "down")
 
-    return cost
+    return cost < 1 ? 1 : cost
   }
 
   /**
    * The real cost of the power.
    *
    * The real cost is the active cost minus all limitations.
+   *
+   * The minimum real cost is 1.
    */
   get realCost() {
     let cost = this.activeCost
@@ -80,8 +86,8 @@ export default class Power {
       limitationQuarters += limitation.quarters
     }
 
-    cost = Math.round(cost / (limitationQuarters / 4))
+    cost = HeroMath.round(cost / (limitationQuarters / 4), "down")
 
-    return cost
+    return cost < 1 ? 1 : cost
   }
 }

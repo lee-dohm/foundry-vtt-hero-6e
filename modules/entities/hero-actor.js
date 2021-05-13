@@ -1,3 +1,5 @@
+import * as HeroMath from '../math.js'
+
 /**
  * Hero game system Actor logic.
  */
@@ -28,7 +30,7 @@ export default class HeroActor extends Actor {
       if (Object.keys(CONFIG.HERO.skillRollCharacteristics).includes(charName)) {
         const characteristic = this._actorGameData.characteristics[charName]
 
-        characteristic.roll = 9 + Math.round(characteristic.value / 5)
+        characteristic.roll = 9 + HeroMath.round(characteristic.value / 5, "up")
       }
     }
   }
