@@ -97,9 +97,6 @@
       "description": {
         "description": ""
       },
-      "displayName": {
-        "name": ""
-      },
       "pointCost": {
         "points": 0
       }
@@ -107,14 +104,12 @@
     "complication": {
       "templates": [
         "description",
-        "displayName",
         "pointCost"
       ]
     },
     "equipment": {
       "templates": [
-        "description",
-        "displayName"
+        "description"
       ],
       "cost": 0,
       "quantity": 0,
@@ -123,15 +118,17 @@
     "power": {
       "templates": [
         "description",
-        "displayName",
         "pointCost"
       ],
-      "endCost": 0
+      "adders": [],
+      "advantages": [],
+      "baseCost": 0,
+      "endCost": 0,
+      "limitations": []
     },
     "skill": {
       "templates": [
         "description",
-        "displayName",
         "pointCost"
       ],
       "roll": {

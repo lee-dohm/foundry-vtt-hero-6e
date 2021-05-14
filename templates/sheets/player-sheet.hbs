@@ -24,25 +24,62 @@
       {{/each}}
     </section>
 
-    <section class="skills-block flex3 m-1">
-      <div class="section-header">{{localize "hero6e.skill.plural"}}</div>
+    <div class="flex3 m-1">
+      <section class="skills-block">
+        <div class="section-header">{{localize "hero6e.skill.plural"}}</div>
 
-      <table>
-        <tr>
-          <th>{{localize "hero6e.skill.singular"}}</th>
-          <th>{{localize "hero6e.skill.roll"}}</th>
-        </tr>
         {{#each data.skills}}
-          <tr>
-            <td>{{this.name}}</td>
-            <td>
+          <div class="flexrow">
+            <div class="flex4">{{this.name}}</div>
+            <div>
               {{#if (and this.roll this.roll.base)}}
-                {{this.roll.base}}-
+                {{this.roll.base}}
               {{/if}}
-            </td>
-          </tr>
+            </div>
+          </div>
+        {{else}}
+          <div class="blankslate">No skills</div>
         {{/each}}
-      </table>
-    </section>
+      </section>
+
+      <section class="powers-block">
+        <div class="section-header">{{localize "hero6e.power.plural"}}</div>
+
+        {{#each data.powers}}
+          <div class="flexrow">
+            <div class="flex4">{{this.name}}</div>
+          </div>
+        {{else}}
+          <div class="blankslate">No powers</div>
+        {{/each}}
+      </section>
+
+      <section class="complications-block">
+        <div class="section-header">{{localize "hero6e.complication.plural"}}</div>
+
+        {{#each data.complications}}
+          <div class="flexrow">
+            <div class="flex4">{{this.name}}</div>
+          </div>
+        {{else}}
+          <div class="blankslate">No complications</div>
+        {{/each}}
+      </section>
+    </div>
+
+    <div class="flex3 m-1">
+      <section class="equipment-block">
+        <div class="section-header">{{localize "hero6e.equipment"}}</div>
+
+        {{#each data.equipment}}
+          <div class="flexrow">
+            <div class="flex4">{{this.name}}</div>
+          </div>
+        {{else}}
+          <div class="blankslate">No equipment</div>
+        {{/each}}
+      </section>
+    </div>
   </div>
+
 </form>

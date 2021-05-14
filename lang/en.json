@@ -25,10 +25,15 @@
       "singular": "Characteristic",
       "value": "Value"
     },
+    "complication": {
+      "plural": "Complications"
+    },
+    "equipment": "Equipment",
     "points": "Points",
     "power": {
       "activeCost": "Active Cost",
       "baseCost": "Base Cost",
+      "plural": "Powers",
       "realCost": "Real Cost"
     },
     "skill": {
