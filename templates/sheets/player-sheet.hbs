@@ -5,41 +5,42 @@
   </header>
 
   <div class="flexrow">
-    <section class="characteristics-block flexcol">
+    <section class="characteristics-block flexcol m-1">
       <div class="section-header">{{localize "hero6e.characteristic.plural"}}</div>
       {{#each data.characteristics}}
-      <div class="flexrow">
-        <div>
-          <input name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
+        <div class="flexrow flexalign-center my-1">
+          <div>
+            <input name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
+          </div>
+          <div class="mx-1">
+            {{localize (concat "hero6e.characteristic.names." @key)}}
+          </div>
+          <div>
+            {{#if this.roll}}
+              {{this.roll}}-
+            {{/if}}
+          </div>
         </div>
-        <div>
-          {{localize (concat "hero6e.characteristic.names." @key)}}
-        </div>
-        <div>
-          {{#if this.roll}}
-          {{this.roll}}-
-          {{/if}}
-        </div>
-      </div>
       {{/each}}
     </section>
 
-    <section class="skills-block flexcol flex3">
+    <section class="skills-block flex3 m-1">
       <div class="section-header">{{localize "hero6e.skill.plural"}}</div>
+
       <table>
         <tr>
           <th>{{localize "hero6e.skill.singular"}}</th>
           <th>{{localize "hero6e.skill.roll"}}</th>
         </tr>
         {{#each data.skills}}
-        <tr>
-          <td>{{this.name}}</td>
-          <td>
-            {{#if (and this.roll this.roll.base)}}
-            {{this.roll.base}}-
-            {{/if}}
-          </td>
-        </tr>
+          <tr>
+            <td>{{this.name}}</td>
+            <td>
+              {{#if (and this.roll this.roll.base)}}
+                {{this.roll.base}}-
+              {{/if}}
+            </td>
+          </tr>
         {{/each}}
       </table>
     </section>
