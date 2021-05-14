@@ -1,0 +1,24 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+  </header>
+
+  <div class="sheet-content flexcol">
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+
+    <div class="flexrow">
+      <div>
+        <label>{{localize "hero6e.power.baseCost"}}</label>
+        <input name="data.baseCost" type="text" value="{{data.baseCost}}" data-dtype="Number" />
+      </div>
+      <div>
+        <div>{{localize "hero6e.power.activeCost"}}</div>
+        <div>{{data.activeCost}}</div>
+      </div>
+      <div>
+        <div>{{localize "hero6e.power.realCost"}}</div>
+        <div>{{data.realCost}}</div>
+      </div>
+    </div>
+  </div>
+</form>

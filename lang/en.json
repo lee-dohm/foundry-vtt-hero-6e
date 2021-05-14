@@ -26,6 +26,11 @@
       "value": "Value"
     },
     "points": "Points",
+    "power": {
+      "activeCost": "Active Cost",
+      "baseCost": "Base Cost",
+      "realCost": "Real Cost"
+    },
     "skill": {
       "base": "Base",
       "bonus": "Bonus",

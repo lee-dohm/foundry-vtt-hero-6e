@@ -35,6 +35,35 @@ import * as HeroMath from '../math.js'
  * * `description` -- Description of the limitation
  */
 export default class Power {
+  /**
+   * Formats the given number of quarters into the text representation of the
+   * reduced form of the number of quarters.
+   *
+   * @param {Number} quarters Number of quarters to convert
+   * @returns Text representation of the number of quarters given
+   */
+  static formatQuarters(quarters) {
+    const wholes = Math.floor(quarters / 4)
+    const remainder = quarters % 4
+    let remainderText = ''
+
+    switch (remainder) {
+      case 1:
+        remainderText = '¼'
+        break
+
+      case 2:
+        remainderText = '½'
+        break
+
+      case 3:
+        remainderText = '¾'
+        break
+    }
+
+    return `${wholes}${remainderText}`
+  }
+
   constructor({ name, description, baseCost, endCost, adders, advantages, limitations }) {
     this.name = name ?? ''
     this.description = description ?? ''
