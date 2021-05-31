@@ -134,7 +134,8 @@
       "roll": {
         "type": "characteristic",
         "characteristic": "int",
-        "bonus": 0
+        "bonus": 0,
+        "value": 11
       }
     }
   }

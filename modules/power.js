@@ -1,4 +1,4 @@
-import * as HeroMath from '../math.js'
+import * as HeroMath from './math.js'
 
 /**
  * Describes a power.
