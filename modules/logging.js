@@ -2,7 +2,7 @@
  * Logs information passed to it at the `debug` level.
  */
 export function debug() {
-  const args = ['hero6e |', ...arguments]
+  const args = [`${CONFIG.HERO.system.shortName} |`, ...arguments]
 
   console.debug(...args)
 }
@@ -27,7 +27,7 @@ export function dump(description, obj, level) {
     fn = console.debug
   }
 
-  fn(`hero6e | ${description}`)
+  fn(`${CONFIG.HERO.system.shortName} | ${description}`)
   fn(JSON.parse(JSON.stringify(obj)))
 }
 
@@ -35,7 +35,7 @@ export function dump(description, obj, level) {
  * Logs information passed to it at the normal or `info` level.
  */
 export function log() {
-  const args = ['hero6e |', ...arguments]
+  const args = [`${CONFIG.HERO.system.shortName} |`, ...arguments]
 
   console.log(...args)
 }

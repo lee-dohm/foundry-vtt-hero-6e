@@ -14,5 +14,9 @@ export const HERO_CONFIG = {
     characteristic: 'hero6e.skill.rollTypes.characteristic',
     none: 'hero6e.skill.rollTypes.none',
     raw: 'hero6e.skill.rollTypes.raw'
+  },
+  system: {
+    longName: 'HERO System 6th Edition',
+    shortName: 'Hero6E'
   }
 }
