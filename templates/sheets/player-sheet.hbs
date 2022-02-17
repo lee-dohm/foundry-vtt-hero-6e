@@ -7,7 +7,7 @@
   <div class="flexrow">
     <section class="characteristics-block flexcol m-1">
       <div class="section-header">{{localize "hero6e.characteristic.plural"}}</div>
-      {{#each data.characteristics}}
+      {{#each actor.data.data.characteristics}}
         <div class="flexrow flexalign-center my-1">
           <div>
             <input name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
@@ -28,7 +28,7 @@
       <section class="skills-block">
         <div class="section-header">{{localize "hero6e.skill.plural"}}</div>
 
-        {{#each data.skills}}
+        {{#each actor.data.data.skills}}
           <div class="flexrow">
             <div class="flex4">{{this.name}}</div>
             <div>
@@ -45,7 +45,7 @@
       <section class="powers-block">
         <div class="section-header">{{localize "hero6e.power.plural"}}</div>
 
-        {{#each data.powers}}
+        {{#each actor.data.data.powers}}
           <div class="flexrow">
             <div class="flex4">{{this.name}}</div>
           </div>
@@ -57,7 +57,7 @@
       <section class="complications-block">
         <div class="section-header">{{localize "hero6e.complication.plural"}}</div>
 
-        {{#each data.complications}}
+        {{#each actor.data.data.complications}}
           <div class="flexrow">
             <div class="flex4">{{this.name}}</div>
           </div>
@@ -71,7 +71,7 @@
       <section class="equipment-block">
         <div class="section-header">{{localize "hero6e.equipment"}}</div>
 
-        {{#each data.equipment}}
+        {{#each actor.data.data.equipment}}
           <div class="flexrow">
             <div class="flex4">{{this.name}}</div>
           </div>

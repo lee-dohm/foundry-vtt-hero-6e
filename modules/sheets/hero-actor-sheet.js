@@ -20,17 +20,6 @@ export default class HeroActorSheet extends ActorSheet {
   }
 
   /**
-   * Reference to the actor object.
-   */
-  get actor() {
-    const actor = super.actor
-
-    HeroLog.dump('Retrieving HeroActorSheet.actor', actor)
-
-    return actor
-  }
-
-  /**
    * Retrieves the actor data to be displayed on the sheet.
    *
    * @returns The actor data
@@ -39,6 +28,8 @@ export default class HeroActorSheet extends ActorSheet {
     const data = super.getData()
 
     data.config = CONFIG.HERO
+
+    HeroLog.dump('Calling HeroActorSheet.getData', data)
 
     return data
   }
