@@ -1,6 +1,25 @@
 {
   "hero6e": {
     "characteristic": {
+      "longNames": {
+        "str": "Strength",
+        "dex": "Dexterity",
+        "con": "Constitution",
+        "int": "Intelligence",
+        "ego": "Ego",
+        "pre": "Presence",
+        "ocv": "Offensive Combat Value",
+        "dcv": "Defensive Combat Value",
+        "omcv": "Offensive Mental Combat Value",
+        "dmcv": "Defensive Mental Combat Value",
+        "spd": "Speed",
+        "pd": "Physical Defense",
+        "ed": "Energy Defense",
+        "rec": "Recovery",
+        "end": "Endurance",
+        "body": "Body",
+        "stun": "Stun"
+      },
       "names": {
         "str": "STR",
         "dex": "DEX",
