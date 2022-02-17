@@ -45,19 +45,25 @@
       "value": "Value"
     },
     "complication": {
+      "none": "No complications",
       "plural": "Complications"
     },
-    "equipment": "Equipment",
+    "equipment": {
+      "none": "No equipment",
+      "plural": "Equipment"
+    },
     "points": "Points",
     "power": {
       "activeCost": "Active Cost",
       "baseCost": "Base Cost",
+      "none": "No powers",
       "plural": "Powers",
       "realCost": "Real Cost"
     },
     "skill": {
       "base": "Base",
       "bonus": "Bonus",
+      "none": "No skills",
       "plural": "Skills",
       "roll": "Roll",
       "rollType": "Roll Type",

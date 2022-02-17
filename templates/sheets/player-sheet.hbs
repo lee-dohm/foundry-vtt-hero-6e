@@ -38,7 +38,7 @@
             </div>
           </div>
         {{else}}
-          <div class="blankslate">No skills</div>
+          <div class="blankslate">{{localize "hero6e.skill.none"}}</div>
         {{/each}}
       </section>
 
@@ -50,7 +50,7 @@
             <div class="flex4">{{this.name}}</div>
           </div>
         {{else}}
-          <div class="blankslate">No powers</div>
+          <div class="blankslate">{{localize "hero6e.power.none"}}</div>
         {{/each}}
       </section>
 
@@ -62,21 +62,21 @@
             <div class="flex4">{{this.name}}</div>
           </div>
         {{else}}
-          <div class="blankslate">No complications</div>
+          <div class="blankslate">{{localize "hero6e.complication.none"}}</div>
         {{/each}}
       </section>
     </div>
 
     <div class="flex3 m-1">
       <section class="equipment-block">
-        <div class="section-header">{{localize "hero6e.equipment"}}</div>
+        <div class="section-header">{{localize "hero6e.equipment.plural"}}</div>
 
         {{#each actor.data.data.equipment}}
           <div class="flexrow">
             <div class="flex4">{{this.name}}</div>
           </div>
         {{else}}
-          <div class="blankslate">No equipment</div>
+          <div class="blankslate">{{localize "hero6e.equipment.none"}}</div>
         {{/each}}
       </section>
     </div>
