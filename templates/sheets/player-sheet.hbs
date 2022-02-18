@@ -6,14 +6,14 @@
 
   <div class="flexrow">
     <section class="characteristics-block flexcol m-1">
-      <div class="section-header">{{localize "hero6e.characteristic.plural"}}</div>
+      <div class="section-header">{{localize "hero6e.Characteristics"}}</div>
       {{#each actor.data.data.characteristics}}
         <div class="flexrow flexalign-center my-1">
           <div>
             <input name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
           </div>
           <div class="mx-1">
-            {{localize (concat "hero6e.characteristic.names." @key)}}
+            {{upcase @key}}
           </div>
           <div>
             {{#if this.roll}}
@@ -25,65 +25,67 @@
     </section>
 
     <div class="flex2 m-1">
-      <div class="tabs">
-        <div class="item active">{{localize "hero6e.skill.plural"}}</div>
-        <div class="item">{{localize "hero6e.power.plural"}}</div>
-        <div class="item">{{localize "hero6e.complication.plural"}}</div>
-        <div class="item">{{localize "hero6e.equipment.plural"}}</div>
-        <div class="item">{{localize "hero6e.description"}}</div>
-      </div>
+      <nav class="tabs sheet-navigation" data-group="primary">
+        <a class="item active" data-tab="skills">{{localize "hero6e.Skills"}}</a>
+        <a class="item" data-tab="powers">{{localize "hero6e.Powers"}}</a>
+        <a class="item" data-tab="complications">{{localize "hero6e.Complications"}}</a>
+        <a class="item" data-tab="equipment">{{localize "hero6e.Equipment"}}</a>
+        <a class="item" data-tab="description">{{localize "hero6e.Description"}}</a>
+      </nav>
 
-      <section class="skills-block tab active" data-tab='{{localize "hero6e.skill.plural"}}'>
-        <div class="section-header">{{localize "hero6e.skill.plural"}}</div>
+      <section class="sheet-body">
+        <div class="tab skills active" data-group="primary" data-tab="skills">
+          <div class="section-header">{{localize "hero6e.Skills"}}</div>
 
-        {{#each actor.data.data.skills}}
-          <div class="flexrow">
-            <div class="flex4">{{this.name}}</div>
-            <div>
-              {{#if (and this.roll this.roll.base)}}
-                {{this.roll.base}}
-              {{/if}}
+          {{#each actor.data.data.skills}}
+            <div class="flexrow">
+              <div class="flex4">{{this.name}}</div>
+              <div>
+                {{#if (and this.roll this.roll.base)}}
+                  {{this.roll.base}}
+                {{/if}}
+              </div>
             </div>
-          </div>
-        {{else}}
-          <div class="blankslate">{{localize "hero6e.skill.none"}}</div>
-        {{/each}}
-      </section>
+          {{else}}
+            <div class="blankslate">{{localize "hero6e.NoSkills"}}</div>
+          {{/each}}
+        </div>
 
-      <section class="powers-block">
-        <div class="section-header">{{localize "hero6e.power.plural"}}</div>
+        <div class="tab powers-block" data-group="primary" data-tab="powers">
+          <div class="section-header">{{localize "hero6e.Powers"}}</div>
 
-        {{#each actor.data.data.powers}}
-          <div class="flexrow">
-            <div class="flex4">{{this.name}}</div>
-          </div>
-        {{else}}
-          <div class="blankslate">{{localize "hero6e.power.none"}}</div>
-        {{/each}}
-      </section>
+          {{#each actor.data.data.powers}}
+            <div class="flexrow">
+              <div class="flex4">{{this.name}}</div>
+            </div>
+          {{else}}
+            <div class="blankslate">{{localize "hero6e.NoPowers"}}</div>
+          {{/each}}
+        </div>
 
-      <section class="complications-block">
-        <div class="section-header">{{localize "hero6e.complication.plural"}}</div>
+        <div class="tab complications-block" data-group="primary" data-tab="complications">
+          <div class="section-header">{{localize "hero6e.Complications"}}</div>
 
-        {{#each actor.data.data.complications}}
-          <div class="flexrow">
-            <div class="flex4">{{this.name}}</div>
-          </div>
-        {{else}}
-          <div class="blankslate">{{localize "hero6e.complication.none"}}</div>
-        {{/each}}
-      </section>
+          {{#each actor.data.data.complications}}
+            <div class="flexrow">
+              <div class="flex4">{{this.name}}</div>
+            </div>
+          {{else}}
+            <div class="blankslate">{{localize "hero6e.NoComplications"}}</div>
+          {{/each}}
+        </div>
 
-      <section class="equipment-block">
-        <div class="section-header">{{localize "hero6e.equipment.plural"}}</div>
+        <div class="tab equipment-block" data-group="primary" data-tab="equipment">
+          <div class="section-header">{{localize "hero6e.Equipment"}}</div>
 
-        {{#each actor.data.data.equipment}}
-          <div class="flexrow">
-            <div class="flex4">{{this.name}}</div>
-          </div>
-        {{else}}
-          <div class="blankslate">{{localize "hero6e.equipment.none"}}</div>
-        {{/each}}
+          {{#each actor.data.data.equipment}}
+            <div class="flexrow">
+              <div class="flex4">{{this.name}}</div>
+            </div>
+          {{else}}
+            <div class="blankslate">{{localize "hero6e.NoEquipment"}}</div>
+          {{/each}}
+        </div>
       </section>
     </div>
   </div>

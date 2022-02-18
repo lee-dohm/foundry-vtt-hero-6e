@@ -1,5 +1,15 @@
 {
   "hero6e": {
+    "Characteristics": "Characteristics",
+    "Complications": "Complications",
+    "Description": "Description",
+    "Equipment": "Equipment",
+    "NoComplications": "No complications",
+    "NoEquipment": "No equipment",
+    "NoPowers": "No powers",
+    "NoSkills": "No skills",
+    "Powers": "Powers",
+    "Skills": "Skills",
     "characteristic": {
       "longNames": {
         "str": "Strength",

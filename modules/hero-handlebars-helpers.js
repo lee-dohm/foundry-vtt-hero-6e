@@ -14,9 +14,20 @@ export default class HeroHandlebarsHelpers {
   }
 
   /**
+   * Changes the supplied text to all uppercase.
+   *
+   * @param {*} text Text to shift to uppercase
+   * @returns Uppercase version of the supplied text
+   */
+  static upcase(text) {
+    return text.toUpperCase()
+  }
+
+  /**
    * Registers all of the Handlebars helper functions.
    */
   static registerHelpers() {
     Handlebars.registerHelper('concat', this.concat)
+    Handlebars.registerHelper('upcase', this.upcase)
   }
 }
