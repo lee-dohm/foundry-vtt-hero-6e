@@ -24,8 +24,16 @@
       {{/each}}
     </section>
 
-    <div class="flex3 m-1">
-      <section class="skills-block">
+    <div class="flex2 m-1">
+      <div class="tabs">
+        <div class="item active">{{localize "hero6e.skill.plural"}}</div>
+        <div class="item">{{localize "hero6e.power.plural"}}</div>
+        <div class="item">{{localize "hero6e.complication.plural"}}</div>
+        <div class="item">{{localize "hero6e.equipment.plural"}}</div>
+        <div class="item">{{localize "hero6e.description"}}</div>
+      </div>
+
+      <section class="skills-block tab active" data-tab='{{localize "hero6e.skill.plural"}}'>
         <div class="section-header">{{localize "hero6e.skill.plural"}}</div>
 
         {{#each actor.data.data.skills}}
@@ -65,9 +73,7 @@
           <div class="blankslate">{{localize "hero6e.complication.none"}}</div>
         {{/each}}
       </section>
-    </div>
 
-    <div class="flex3 m-1">
       <section class="equipment-block">
         <div class="section-header">{{localize "hero6e.equipment.plural"}}</div>
 

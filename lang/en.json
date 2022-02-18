@@ -48,6 +48,7 @@
       "none": "No complications",
       "plural": "Complications"
     },
+    "description": "Description",
     "equipment": {
       "none": "No equipment",
       "plural": "Equipment"
