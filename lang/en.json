@@ -2,6 +2,8 @@
   "hero6e": {
     "ActiveCost": "Active Cost",
     "BaseCost": "Base Cost",
+    "Bonus": "Bonus",
+    "Characteristic": "Characteristic",
     "Characteristics": "Characteristics",
     "Complications": "Complications",
     "Description": "Description",
@@ -10,8 +12,11 @@
     "NoEquipment": "No equipment",
     "NoPowers": "No powers",
     "NoSkills": "No skills",
+    "Points": "Points",
     "Powers": "Powers",
     "RealCost": "Real Cost",
+    "Roll": "Roll",
+    "RollType": "Roll Type",
     "Skills": "Skills",
     "characteristic": {
       "longNames": {
