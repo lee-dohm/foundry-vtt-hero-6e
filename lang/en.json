@@ -1,5 +1,7 @@
 {
   "hero6e": {
+    "ActiveCost": "Active Cost",
+    "BaseCost": "Base Cost",
     "Characteristics": "Characteristics",
     "Complications": "Complications",
     "Description": "Description",
@@ -9,6 +11,7 @@
     "NoPowers": "No powers",
     "NoSkills": "No skills",
     "Powers": "Powers",
+    "RealCost": "Real Cost",
     "Skills": "Skills",
     "characteristic": {
       "longNames": {
