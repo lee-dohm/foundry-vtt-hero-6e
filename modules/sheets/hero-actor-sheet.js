@@ -14,8 +14,8 @@ export default class HeroActorSheet extends ActorSheet {
       classes: ['hero6e', 'sheet', 'actor', 'player'],
       tabs: [
         {
-          navSelector: '.tabs',
-          contentSelector: '.sheetbody',
+          navSelector: '.tabs.list-navigation',
+          contentSelector: '.list-display',
           initial: 'skills'
         }
       ]
