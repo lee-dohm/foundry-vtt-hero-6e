@@ -11,7 +11,14 @@ export default class HeroActorSheet extends ActorSheet {
     const options = mergeObject(super.defaultOptions, {
       baseApplication: "HeroActorSheet",
       template: "systems/hero6e/templates/sheets/player-sheet.hbs",
-      classes: ["hero6e", "sheet", "actor", "player"]
+      classes: ["hero6e", "sheet", "actor", "player"],
+      tabs: [
+        {
+            navSelector: '.tabs',
+            contentSelector: '.sheetbody',
+            initial: 'skills',
+        },
+      ],
     })
 
     HeroLog.dump('Retrieving HeroActorSheet.defaultOptions', options)

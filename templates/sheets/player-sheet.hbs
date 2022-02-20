@@ -26,14 +26,14 @@
 
     <div class="flex2 m-1">
       <nav class="tabs" data-group="primary">
-        <a class="item active" data-tab="skills">{{localize "hero6e.Skills"}}</a>
+        <a class="item" data-tab="skills">{{localize "hero6e.Skills"}}</a>
         <a class="item" data-tab="powers">{{localize "hero6e.Powers"}}</a>
         <a class="item" data-tab="complications">{{localize "hero6e.Complications"}}</a>
         <a class="item" data-tab="equipment">{{localize "hero6e.Equipment"}}</a>
         <a class="item" data-tab="description">{{localize "hero6e.Description"}}</a>
       </nav>
 
-      <div>
+      <div class="sheetbody">
         {{> "systems/hero6e/templates/sheets/tabs/skills-tab.hbs"}}
         {{> "systems/hero6e/templates/sheets/tabs/powers-tab.hbs"}}
         {{> "systems/hero6e/templates/sheets/tabs/complications-tab.hbs"}}
