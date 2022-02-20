@@ -1,0 +1,11 @@
+        <div class="tab complications-block" data-group="primary" data-tab="complications">
+          <div class="section-header">{{localize "hero6e.Complications"}}</div>
+
+          {{#each actor.data.data.complications}}
+            <div class="flexrow">
+              <div class="flex4">{{this.name}}</div>
+            </div>
+          {{else}}
+            <div class="blankslate">{{localize "hero6e.NoComplications"}}</div>
+          {{/each}}
+        </div>

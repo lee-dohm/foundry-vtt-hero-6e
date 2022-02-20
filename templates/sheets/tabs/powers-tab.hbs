@@ -1,0 +1,11 @@
+        <div class="tab powers-block" data-group="primary" data-tab="powers">
+          <div class="section-header">{{localize "hero6e.Powers"}}</div>
+
+          {{#each actor.data.data.powers}}
+            <div class="flexrow">
+              <div class="flex4">{{this.name}}</div>
+            </div>
+          {{else}}
+            <div class="blankslate">{{localize "hero6e.NoPowers"}}</div>
+          {{/each}}
+        </div>

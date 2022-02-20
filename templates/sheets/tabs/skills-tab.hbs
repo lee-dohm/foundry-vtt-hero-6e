@@ -1,0 +1,16 @@
+        <div class="tab skills active" data-group="primary" data-tab="skills">
+          <div class="section-header">{{localize "hero6e.Skills"}}</div>
+
+          {{#each actor.data.data.skills}}
+            <div class="flexrow">
+              <div class="flex4">{{this.name}}</div>
+              <div>
+                {{#if (and this.roll this.roll.base)}}
+                  {{this.roll.base}}
+                {{/if}}
+              </div>
+            </div>
+          {{else}}
+            <div class="blankslate">{{localize "hero6e.NoSkills"}}</div>
+          {{/each}}
+        </div>
