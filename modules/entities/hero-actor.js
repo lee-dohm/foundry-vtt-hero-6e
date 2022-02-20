@@ -30,7 +30,7 @@ export default class HeroActor extends Actor {
       if (Object.keys(CONFIG.HERO.skillRollCharacteristics).includes(charName)) {
         const characteristic = this._actorGameData.characteristics[charName]
 
-        characteristic.roll = 9 + HeroMath.round(characteristic.value / 5, "up")
+        characteristic.roll = 9 + HeroMath.round(characteristic.value / 5, 'up')
       }
     }
   }

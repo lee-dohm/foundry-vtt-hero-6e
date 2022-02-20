@@ -7,7 +7,7 @@ export default class HeroItemSheet extends ItemSheet {
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["hero6e", "sheet", "item"]
+      classes: ['hero6e', 'sheet', 'item']
     })
   }
 
