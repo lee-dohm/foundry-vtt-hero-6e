@@ -9,6 +9,11 @@ import HeroItem from './entities/hero-item.js'
 import HeroItemSheet from './sheets/hero-item-sheet.js'
 import HeroActorSheet from './sheets/hero-actor-sheet.js'
 
+/**
+ * Loads all system templates.
+ *
+ * @returns Promise that resolves when all templates have been loaded
+ */
 async function loadHandlebarsTemplates() {
   const paths = [
     'systems/hero6e/templates/sheets/tabs/complications-tab.hbs',
