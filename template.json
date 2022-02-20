@@ -1,8 +1,7 @@
 {
   "Actor": {
     "types": [
-      "player",
-      "npc"
+      "character"
     ],
     "templates": {
       "creature": {
@@ -75,12 +74,7 @@
         }
       }
     },
-    "player": {
-      "templates": [
-        "creature"
-      ]
-    },
-    "npc": {
+    "character": {
       "templates": [
         "creature"
       ]
