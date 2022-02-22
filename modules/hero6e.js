@@ -32,8 +32,8 @@ Hooks.once('init', function () {
 
   HeroLog.log('Initializing Hero 6th Edition game system')
 
-  CONFIG.Actor.entityClass = HeroActor
-  CONFIG.Item.entityClass = HeroItem
+  CONFIG.Actor.documentClass = HeroActor
+  CONFIG.Item.documentClass = HeroItem
 
   Actors.unregisterSheet('core', ActorSheet)
   Actors.registerSheet('hero6e', HeroActorSheet, { makedefault: true })
