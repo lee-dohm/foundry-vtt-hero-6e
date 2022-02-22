@@ -12,8 +12,8 @@
           <div>
             <input class="characteristic" name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
           </div>
-          <div class="mx-1">
-            {{upcase @key}}
+          <div class="mx-1 text-upcase">
+            {{@key}}
           </div>
           <div>
             {{#if this.roll}}
