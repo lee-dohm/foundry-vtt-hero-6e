@@ -7,8 +7,8 @@
     "build": "npm run build-styles",
     "build-styles": "npx lessc less/hero6e.less styles/hero6e.css",
     "ci": "npm run format-check && npm run lint && npm run build",
-    "format": "prettier --write ./**/*.js ./**/*.md ./**/*.yaml",
-    "format-check": "prettier --check ./**/*.js ./**/*.md ./**/*.yaml",
+    "format": "prettier --write .",
+    "format-check": "prettier --check .",
     "lint": "npx eslint modules/**/*.js",
     "test": "jest"
   },

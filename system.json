@@ -7,16 +7,10 @@
   "compatibleCoreVersion": "9.249",
   "templateVersion": 2,
   "author": "@lee-dohm",
-  "scripts": [
-  ],
-  "esmodules": [
-    "modules/hero6e.js"
-  ],
-  "styles": [
-    "styles/hero6e.css"
-  ],
-  "packs": [
-  ],
+  "scripts": [],
+  "esmodules": ["modules/hero6e.js"],
+  "styles": ["styles/hero6e.css"],
+  "packs": [],
   "languages": [
     {
       "lang": "en",
