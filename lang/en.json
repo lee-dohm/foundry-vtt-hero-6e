@@ -16,6 +16,10 @@
     "Powers": "Powers",
     "RealCost": "Real Cost",
     "Roll": "Roll",
+    "RollAutomaticFail": "{description} roll was an automatic failure",
+    "RollAutomaticSuccess": "{description} roll was an automatic success",
+    "RollFail": "{description} roll failed by {margin}",
+    "RollSuccess": "{description} roll succeeded by {margin}",
     "RollType": "Roll Type",
     "Skills": "Skills",
     "characteristic": {

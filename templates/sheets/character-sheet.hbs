@@ -12,13 +12,15 @@
           <div>
             <input class="characteristic" name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>
           </div>
-          <div class="mx-1 text-upcase">
+          <div class="mx-1 text-center text-upcase">
             {{@key}}
           </div>
           <div>
             {{#if this.roll}}
-              {{this.roll}}-
-              <i class="fa fa-dice"></i>
+              <button class="rollable-characteristic" data-roll-base="{{this.roll}}" data-roll-label="{{@key}}">
+                {{this.roll}}-
+                <i class="fa fa-dice"></i>
+              </button>
             {{/if}}
           </div>
         </div>
