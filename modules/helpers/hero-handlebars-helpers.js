@@ -24,6 +24,23 @@ export default class HeroHandlebarsHelpers {
   }
 
   /**
+   * Loads all system templates.
+   *
+   * @returns Promise that resolves when all templates have been loaded
+   */
+  static async preloadTemplates() {
+    const paths = [
+      'systems/hero6e/templates/sheets/tabs/complications-tab.hbs',
+      'systems/hero6e/templates/sheets/tabs/description-tab.hbs',
+      'systems/hero6e/templates/sheets/tabs/equipment-tab.hbs',
+      'systems/hero6e/templates/sheets/tabs/powers-tab.hbs',
+      'systems/hero6e/templates/sheets/tabs/skills-tab.hbs'
+    ]
+
+    return loadTemplates(paths)
+  }
+
+  /**
    * Registers all of the Handlebars helper functions.
    */
   static registerHelpers() {
