@@ -1,7 +1,7 @@
 import { HERO_CONFIG } from './config.js'
 import * as HeroLog from './logging.js'
 
-import HeroHandlebarsHelpers from './hero-handlebars-helpers.js'
+import HeroHandlebarsHelpers from './helpers/hero-handlebars-helpers.js'
 
 import HeroActor from './entities/hero-actor.js'
 import HeroItem from './entities/hero-item.js'
