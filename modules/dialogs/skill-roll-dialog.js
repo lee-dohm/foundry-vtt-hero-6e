@@ -3,7 +3,7 @@
  */
 export class SkillRollDialog extends Dialog {
   /**
-   * Constructions the dialog prior to rendering.
+   * Constructs the dialog prior to rendering.
    *
    * @param {Object} dialogData Configuration options for the dialog.
    * @param {DialogOptions} options Dialog rendering options.
