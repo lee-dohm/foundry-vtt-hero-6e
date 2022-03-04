@@ -1,5 +1,4 @@
 import * as HeroLog from '../logging.js'
-import { fasIcon } from '../helpers/icon-helpers.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
 
 /**
@@ -59,36 +58,7 @@ export default class HeroActorSheet extends ActorSheet {
 
     const dataset = event.currentTarget.dataset
     const { rollBase, rollLabel } = dataset
-
-    let d = new SkillRollDialog({
-      title: game.i18n.format('hero6e.CharacteristicCheck', { characteristic: rollLabel.toUpperCase() }),
-      content: '<p>Some content</p>',
-      buttons: {
-        roll: {
-          icon: fasIcon('dice'),
-          label: game.i18n.localize('hero6e.Roll'),
-          callback: async () => {
-            let roll = new Roll('3d6', this.actor.getRollData())
-            let result = await roll.evaluate({ async: true })
-            let margin = rollBase - result.total
-            let msgId = margin >= 0 ? 'hero6e.RollSuccess' : 'hero6e.RollFail'
-
-            result.toMessage({
-              flavor: game.i18n.format(msgId, {
-                description: rollLabel.toUpperCase(),
-                margin: Math.abs(margin)
-              }),
-              speaker: ChatMessage.getSpeaker({ actor: this.actor })
-            })
-          }
-        },
-        cancel: {
-          icon: fasIcon('times'),
-          label: game.i18n.localize('hero6e.Cancel')
-        }
-      },
-      default: 'roll'
-    })
+    const d = SkillRollDialog.create({ actor: this.actor, base: rollBase, label: rollLabel })
 
     d.render(true)
   }
