@@ -12,7 +12,9 @@ export class SkillRollDialog extends Dialog {
    */
   static create(params) {
     return new Dialog({
-      title: game.i18n.format('hero6e.CharacteristicCheck', { characteristic: params.label.toUpperCase() }),
+      title: game.i18n.format('hero6e.CharacteristicCheck', {
+        characteristic: params.label.toUpperCase()
+      }),
       content: '<p>Some content</p>',
       buttons: {
         roll: {
