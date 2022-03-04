@@ -54,7 +54,7 @@ export default class HeroActorSheet extends ActorSheet {
     return data
   }
 
-  async _onCharacteristicRoll(event) {
+  _onCharacteristicRoll(event) {
     event.preventDefault()
 
     const dataset = event.currentTarget.dataset
