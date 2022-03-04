@@ -1,4 +1,5 @@
 import * as HeroLog from '../logging.js'
+import { fasIcon } from '../helpers/icon-helpers.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
 
 /**
@@ -60,36 +61,33 @@ export default class HeroActorSheet extends ActorSheet {
     const { rollBase, rollLabel } = dataset
 
     let d = new SkillRollDialog({
-      title: 'Test Dialog',
+      title: game.i18n.format('hero6e.CharacteristicCheck', { characteristic: rollLabel.toUpperCase() }),
       content: '<p>Some content</p>',
       buttons: {
-        one: {
-          icon: '<i class="fas fa-check"></i>',
-          label: "Option One",
-          callback: () => console.log("Chose One")
+        roll: {
+          icon: fasIcon('dice'),
+          label: game.i18n.localize('hero6e.Roll'),
+          callback: async () => {
+            let roll = new Roll('3d6', this.actor.getRollData())
+            let result = await roll.evaluate({ async: true })
+            let margin = rollBase - result.total
+            let msgId = margin >= 0 ? 'hero6e.RollSuccess' : 'hero6e.RollFail'
+
+            result.toMessage({
+              flavor: game.i18n.format(msgId, {
+                description: rollLabel.toUpperCase(),
+                margin: Math.abs(margin)
+              }),
+              speaker: ChatMessage.getSpeaker({ actor: this.actor })
+            })
+          }
         },
-        two: {
-          icon: '<i class="fas fa-times"></i>',
-          label: "Option Two",
-          callback: () => console.log("Chose Two")
+        cancel: {
+          icon: fasIcon('times'),
+          label: game.i18n.localize('hero6e.Cancel')
         }
       },
-      default: "two",
-      render: () => console.log("Register interactivity in the rendered dialog"),
-      close: async () => {
-        let roll = new Roll('3d6', this.actor.getRollData())
-        let result = await roll.evaluate({ async: true })
-        let margin = rollBase - result.total
-        let msgId = margin >= 0 ? 'hero6e.RollSuccess' : 'hero6e.RollFail'
-
-        result.toMessage({
-          flavor: game.i18n.format(msgId, {
-            description: rollLabel.toUpperCase(),
-            margin: Math.abs(margin)
-          }),
-          speaker: ChatMessage.getSpeaker({ actor: this.actor })
-        })
-      }
+      default: 'roll'
     })
 
     d.render(true)
