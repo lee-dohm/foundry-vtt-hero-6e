@@ -1,3 +1,5 @@
+import * as HeroLog from '../logging.js'
+
 import { fasIcon } from '../helpers/icon-helpers.js'
 
 /**
@@ -11,6 +13,10 @@ export class SkillRollDialog extends Dialog {
    * @returns Dialog instance to render
    */
   static async create(params) {
+    if (typeof params.base !== 'number') {
+      params.base = parseInt(params.base, 10)
+    }
+
     return new SkillRollDialog({
       title: game.i18n.format('hero6e.CharacteristicCheck', {
         characteristic: params.label.toUpperCase()
@@ -45,14 +51,40 @@ export class SkillRollDialog extends Dialog {
     this._label = dialogData.params.label
   }
 
+  get modifierInput() {
+    const input = this._element.find('.modifier-input')[0]
+
+    return input
+  }
+
+  get modifier() {
+    return parseInt(this.modifierInput.value, 10)
+  }
+
   /**
    * After rendering, activates the event listeners for the dialog.
    *
    * @param {jQuery} html Reference to the dialog within the UI
    */
   activateListeners(html) {
+    super.activateListeners(html)
+
     html.find('.cancel.dialog-button').click(this.close.bind(this))
     html.find('.roll.dialog-button').click(this._roll.bind(this))
+    html.find('.modifier-button-minus').click(this._decrementModifier.bind(this))
+    html.find('.modifier-button-plus').click(this._incrementModifier.bind(this))
+  }
+
+  _decrementModifier(event) {
+    event.preventDefault()
+
+    this.modifierInput.value = this.modifier - 1
+  }
+
+  _incrementModifier(event) {
+    event.preventDefault()
+
+    this.modifierInput.value = this.modifier + 1
   }
 
   /**
@@ -65,7 +97,7 @@ export class SkillRollDialog extends Dialog {
 
     let roll = new Roll('3d6', this._actor.getRollData())
     let result = await roll.evaluate({ async: true })
-    let margin = this._base - result.total
+    let margin = this._base + this.modifier - result.total
     let msgId = margin >= 0 ? 'hero6e.RollSuccess' : 'hero6e.RollFail'
 
     result.toMessage({
