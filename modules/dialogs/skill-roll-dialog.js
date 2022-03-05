@@ -11,7 +11,7 @@ export class SkillRollDialog extends Dialog {
    * @returns Dialog instance to render
    */
   static create(params) {
-    return new Dialog({
+    return new SkillRollDialog({
       title: game.i18n.format('hero6e.CharacteristicCheck', {
         characteristic: params.label.toUpperCase()
       }),
@@ -19,28 +19,15 @@ export class SkillRollDialog extends Dialog {
       buttons: {
         roll: {
           icon: fasIcon('dice'),
-          label: game.i18n.localize('hero6e.Roll'),
-          callback: async () => {
-            let roll = new Roll('3d6', params.actor.getRollData())
-            let result = await roll.evaluate({ async: true })
-            let margin = params.base - result.total
-            let msgId = margin >= 0 ? 'hero6e.RollSuccess' : 'hero6e.RollFail'
-
-            result.toMessage({
-              flavor: game.i18n.format(msgId, {
-                description: params.label.toUpperCase(),
-                margin: Math.abs(margin)
-              }),
-              speaker: ChatMessage.getSpeaker({ actor: params.actor })
-            })
-          }
+          label: game.i18n.localize('hero6e.Roll')
         },
         cancel: {
           icon: fasIcon('times'),
           label: game.i18n.localize('hero6e.Cancel')
         }
       },
-      default: 'roll'
+      default: 'roll',
+      params: params
     })
   }
 
@@ -52,5 +39,43 @@ export class SkillRollDialog extends Dialog {
    */
   constructor(dialogData, options) {
     super(dialogData, options)
+
+    this._actor = dialogData.params.actor
+    this._base = dialogData.params.base
+    this._label = dialogData.params.label
+  }
+
+  /**
+   * After rendering, activates the event listeners for the dialog.
+   *
+   * @param {jQuery} html Reference to the dialog within the UI
+   */
+  activateListeners(html) {
+    html.find('.cancel.dialog-button').click(this.close.bind(this))
+    html.find('.roll.dialog-button').click(this._roll.bind(this))
+  }
+
+  /**
+   * Rolls the dice based on the current values in the dialog and closes it.
+   *
+   * @param {Event} event Event being handled
+   */
+  async _roll(event) {
+    event.preventDefault()
+
+    let roll = new Roll('3d6', this._actor.getRollData())
+    let result = await roll.evaluate({ async: true })
+    let margin = this._base - result.total
+    let msgId = margin >= 0 ? 'hero6e.RollSuccess' : 'hero6e.RollFail'
+
+    result.toMessage({
+      flavor: game.i18n.format(msgId, {
+        description: this._label.toUpperCase(),
+        margin: Math.abs(margin)
+      }),
+      speaker: ChatMessage.getSpeaker({ actor: this._actor })
+    })
+
+    this.close()
   }
 }
