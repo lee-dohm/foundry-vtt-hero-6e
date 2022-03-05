@@ -4,7 +4,7 @@
   "description": "A game system for the HERO System 6th Edition role playing rules",
   "version": "0.1.0",
   "minimumCoreVersion": "9.249",
-  "compatibleCoreVersion": "9.251",
+  "compatibleCoreVersion": "9.254",
   "templateVersion": 2,
   "author": "@lee-dohm",
   "scripts": [],
