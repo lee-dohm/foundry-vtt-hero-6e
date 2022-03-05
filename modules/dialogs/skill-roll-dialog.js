@@ -89,7 +89,15 @@ export class SkillRollDialog extends Dialog {
     return modifier.toString()
   }
 
-  _getMessageId(margin, modifier) {
+  _getMessageId(total, margin, modifier) {
+    if (total === 3) {
+      return 'hero6e.RollAutomaticSuccess'
+    }
+
+    if (total === 18) {
+      return 'hero6e.RollAutomaticFail'
+    }
+
     if (modifier === 0) {
       if (margin > 0) {
         return 'hero6e.RollSuccess'
@@ -126,7 +134,7 @@ export class SkillRollDialog extends Dialog {
     let roll = new Roll('3d6', this._actor.getRollData())
     let result = await roll.evaluate({ async: true })
     let margin = this._base + this.modifier - result.total
-    let msgId = this._getMessageId(margin, this.modifier)
+    let msgId = this._getMessageId(result.total, margin, this.modifier)
 
     result.toMessage({
       flavor: game.i18n.format(msgId, {
