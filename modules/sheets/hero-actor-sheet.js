@@ -53,12 +53,12 @@ export default class HeroActorSheet extends ActorSheet {
     return data
   }
 
-  _onCharacteristicRoll(event) {
+  async _onCharacteristicRoll(event) {
     event.preventDefault()
 
     const dataset = event.currentTarget.dataset
     const { rollBase, rollLabel } = dataset
-    const d = SkillRollDialog.create({ actor: this.actor, base: rollBase, label: rollLabel })
+    const d = await SkillRollDialog.create({ actor: this.actor, base: rollBase, label: rollLabel })
 
     d.render(true)
   }

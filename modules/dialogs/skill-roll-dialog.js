@@ -10,12 +10,12 @@ export class SkillRollDialog extends Dialog {
    * @param {SkillRollDialogParams} params Parameters for the skill roll dialog
    * @returns Dialog instance to render
    */
-  static create(params) {
+  static async create(params) {
     return new SkillRollDialog({
       title: game.i18n.format('hero6e.CharacteristicCheck', {
         characteristic: params.label.toUpperCase()
       }),
-      content: '<p>Some content</p>',
+      content: await renderTemplate('systems/hero6e/templates/dialogs/skill-roll-dialog.hbs'),
       buttons: {
         roll: {
           icon: fasIcon('dice'),
