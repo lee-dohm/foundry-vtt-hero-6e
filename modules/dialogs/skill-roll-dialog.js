@@ -78,13 +78,41 @@ export class SkillRollDialog extends Dialog {
   _decrementModifier(event) {
     event.preventDefault()
 
-    this.modifierInput.value = this.modifier - 1
+    this.modifierInput.value = this._formatModifier(this.modifier - 1)
+  }
+
+  _formatModifier(modifier) {
+    if (modifier > 0) {
+      return `+${modifier}`.toString()
+    }
+
+    return modifier.toString()
+  }
+
+  _getMessageId(margin, modifier) {
+    if (modifier === 0) {
+      if (margin > 0) {
+        return 'hero6e.RollSuccess'
+      } else if (margin === 0 ) {
+        return 'hero6e.RollExactSuccess'
+      } else {
+        return 'hero6e.RollFail'
+      }
+    } else {
+      if (margin > 0) {
+        return 'hero6e.ModifiedRollSuccess'
+      } else if (margin === 0 ) {
+        return 'hero6e.ModifiedRollExactSuccess'
+      } else {
+        return 'hero6e.ModifiedRollFail'
+      }
+    }
   }
 
   _incrementModifier(event) {
     event.preventDefault()
 
-    this.modifierInput.value = this.modifier + 1
+    this.modifierInput.value = this._formatModifier(this.modifier + 1)
   }
 
   /**
@@ -98,12 +126,13 @@ export class SkillRollDialog extends Dialog {
     let roll = new Roll('3d6', this._actor.getRollData())
     let result = await roll.evaluate({ async: true })
     let margin = this._base + this.modifier - result.total
-    let msgId = margin >= 0 ? 'hero6e.RollSuccess' : 'hero6e.RollFail'
+    let msgId = this._getMessageId(margin, this.modifier)
 
     result.toMessage({
       flavor: game.i18n.format(msgId, {
         description: this._label.toUpperCase(),
-        margin: Math.abs(margin)
+        margin: Math.abs(margin),
+        modifier: this._formatModifier(this.modifier)
       }),
       speaker: ChatMessage.getSpeaker({ actor: this._actor })
     })
