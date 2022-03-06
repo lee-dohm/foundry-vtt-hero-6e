@@ -12,22 +12,25 @@
  * @return {Number} Rounded number
  * @hero 6E1 12 Character Points and Rounding
  */
-export function round(number, direction) {
+export function round(number: number, direction: string): number {
   if (!direction) {
     throw new Error('Direction parameter is required')
   }
+
   const sign = number < 0 ? -1 : 1
   const magnitude = Math.abs(number)
   const fracDigit = getFirstDecimalDigit(magnitude)
   let integer = Math.floor(magnitude)
+
   if (fracDigit > 5) {
     integer += 1
   } else if (fracDigit === 5 && direction === 'up') {
     integer += 1
   }
+
   return integer * sign
 }
-function getFirstDecimalDigit(number) {
+
+function getFirstDecimalDigit(number: number): number {
   return Math.floor(number * 10) % 10
 }
-//# sourceMappingURL=math.js.map

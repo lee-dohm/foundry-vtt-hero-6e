@@ -9,18 +9,20 @@ export default class HeroHandlebarsHelpers {
    * @param {*} b
    * @returns Concatenated representation of the two values
    */
-  static concat(a, b) {
+  static concat(a: any, b: any) {
     return `${a}${b}`
   }
+
   /**
    * Changes the supplied text to all uppercase.
    *
    * @param text Text to shift to uppercase
    * @returns Uppercase version of the supplied text
    */
-  static upcase(text) {
+  static upcase(text: string) {
     return text.toUpperCase()
   }
+
   /**
    * Loads all system templates.
    *
@@ -34,8 +36,10 @@ export default class HeroHandlebarsHelpers {
       'systems/hero6e/templates/sheets/tabs/powers-tab.hbs',
       'systems/hero6e/templates/sheets/tabs/skills-tab.hbs'
     ]
+
     return loadTemplates(paths)
   }
+
   /**
    * Registers all of the Handlebars helper functions.
    */
@@ -44,4 +48,3 @@ export default class HeroHandlebarsHelpers {
     Handlebars.registerHelper('upcase', this.upcase)
   }
 }
-//# sourceMappingURL=hero-handlebars-helpers.js.map
