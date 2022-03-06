@@ -1,5 +1,3 @@
-import * as HeroLog from '../logging.js'
-
 import { fasIcon } from '../helpers/icon-helpers.js'
 
 /**
@@ -51,14 +49,29 @@ export class SkillRollDialog extends Dialog {
     this._label = dialogData.params.label
   }
 
+  /**
+   * Gets the modifier input element.
+   */
   get modifierInput() {
-    const input = this._element.find('.modifier-input')[0]
+    if (!this._modifierInput) {
+      this._modifierInput = this._element.find('input[name="modifier"]')[0]
+    }
 
-    return input
+    return this._modifierInput
   }
 
+  /**
+   * Gets the numeric modifier value from the modifier input element.
+   */
   get modifier() {
     return parseInt(this.modifierInput.value, 10)
+  }
+
+  /**
+   * Sets the modifier input element to the given value.
+   */
+  set modifier(value) {
+    this.modifierInput.value = this._formatModifier(value)
   }
 
   /**
@@ -71,16 +84,27 @@ export class SkillRollDialog extends Dialog {
 
     html.find('.cancel.dialog-button').click(this.close.bind(this))
     html.find('.roll.dialog-button').click(this._roll.bind(this))
-    html.find('.modifier-button-minus').click(this._decrementModifier.bind(this))
-    html.find('.modifier-button-plus').click(this._incrementModifier.bind(this))
+    html.find('.modifier-minus').click(this._decrementModifier.bind(this))
+    html.find('.modifier-plus').click(this._incrementModifier.bind(this))
   }
 
+  /**
+   * Decrement the modifier in response to the minus button being pressed.
+   *
+   * @param {Event} event Event that triggered the decrement
+   */
   _decrementModifier(event) {
     event.preventDefault()
 
-    this.modifierInput.value = this._formatModifier(this.modifier - 1)
+    this.modifier = this.modifier - 1
   }
 
+  /**
+   * Formats the numeric form of the modifier into its text representation.
+   *
+   * @param {Number} modifier Numeric form of the modifier
+   * @returns Text form of the modifier
+   */
   _formatModifier(modifier) {
     if (modifier > 0) {
       return `+${modifier}`.toString()
@@ -89,6 +113,15 @@ export class SkillRollDialog extends Dialog {
     return modifier.toString()
   }
 
+  /**
+   * Gets the appropriate flavor text localization message ID to use based on
+   * various factors.
+   *
+   * @param {Number} total Total rolled on the dice
+   * @param {Number} margin Margin between the target and the total
+   * @param {Number} modifier Modifier set for the roll
+   * @returns Message ID to use for the flavor text on the chat message
+   */
   _getMessageId(total, margin, modifier) {
     if (total === 3) {
       return 'hero6e.RollAutomaticSuccess'
@@ -101,7 +134,7 @@ export class SkillRollDialog extends Dialog {
     if (modifier === 0) {
       if (margin > 0) {
         return 'hero6e.RollSuccess'
-      } else if (margin === 0 ) {
+      } else if (margin === 0) {
         return 'hero6e.RollExactSuccess'
       } else {
         return 'hero6e.RollFail'
@@ -109,7 +142,7 @@ export class SkillRollDialog extends Dialog {
     } else {
       if (margin > 0) {
         return 'hero6e.ModifiedRollSuccess'
-      } else if (margin === 0 ) {
+      } else if (margin === 0) {
         return 'hero6e.ModifiedRollExactSuccess'
       } else {
         return 'hero6e.ModifiedRollFail'
@@ -117,24 +150,29 @@ export class SkillRollDialog extends Dialog {
     }
   }
 
+  /**
+   * Increment the modifier in response to the button being pressed.
+   *
+   * @param {Event} event Event that triggered the increment
+   */
   _incrementModifier(event) {
     event.preventDefault()
 
-    this.modifierInput.value = this._formatModifier(this.modifier + 1)
+    this.modifier = this.modifier + 1
   }
 
   /**
    * Rolls the dice based on the current values in the dialog and closes it.
    *
-   * @param {Event} event Event being handled
+   * @param {Event} event Event that triggered the roll
    */
   async _roll(event) {
     event.preventDefault()
 
-    let roll = new Roll('3d6', this._actor.getRollData())
-    let result = await roll.evaluate({ async: true })
-    let margin = this._base + this.modifier - result.total
-    let msgId = this._getMessageId(result.total, margin, this.modifier)
+    const roll = new Roll('3d6', this._actor.getRollData())
+    const result = await roll.evaluate({ async: true })
+    const margin = this._base + this.modifier - result.total
+    const msgId = this._getMessageId(result.total, margin, this.modifier)
 
     result.toMessage({
       flavor: game.i18n.format(msgId, {
