@@ -1,5 +1,6 @@
 import { getGame } from '../helpers/global-helpers.js'
 import { fasIcon } from '../helpers/icon-helpers.js'
+import { HeroActor } from '../entities/hero-actor.js'
 
 namespace SkillRollDialog {
   export interface Data extends Dialog.Data {
@@ -9,7 +10,7 @@ namespace SkillRollDialog {
   /** Parameters given to create the dialog. */
   export interface Params {
     /** Actor who is attempting the skill roll. */
-    actor: Actor
+    actor: HeroActor
 
     /** Base skill roll number. */
     base: number
@@ -55,7 +56,7 @@ export class SkillRollDialog extends Dialog {
   }
 
   /** Actor who is attempting the skill roll. */
-  protected _actor: Actor
+  protected _actor: HeroActor
 
   /** Base skill roll number. */
   protected _base: number
@@ -69,8 +70,8 @@ export class SkillRollDialog extends Dialog {
   /**
    * Constructs the dialog prior to rendering.
    *
-   * @param {Object} dialogData Configuration options for the dialog.
-   * @param {ApplicationOptions} options Dialog rendering options.
+   * @param dialogData Configuration options for the dialog.
+   * @param options Dialog rendering options.
    */
   constructor(dialogData: SkillRollDialog.Data, options?: Dialog.Options) {
     super(dialogData, options)
@@ -195,7 +196,7 @@ export class SkillRollDialog extends Dialog {
   /**
    * Rolls the dice based on the current values in the dialog and closes it.
    *
-   * @param {Event} event Event that triggered the roll
+   * @param event Event that triggered the roll
    */
   protected async _roll(event: JQuery.Event): Promise<void> {
     event.preventDefault()
