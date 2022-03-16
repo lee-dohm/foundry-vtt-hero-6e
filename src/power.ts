@@ -1,4 +1,33 @@
-import * as HeroMath from './math.js'
+import { HeroMath, RoundDirection } from './math.js'
+
+interface Adder {
+  cost: number
+  description: string
+}
+
+interface Advantage {
+  description: string
+  multiplier: string
+  quarters: number
+}
+
+interface Limitation {
+  description: string
+  divisor: string
+  quarters: number
+}
+
+namespace Power {
+  export interface Params {
+    name?: string
+    description?: string
+    baseCost?: number
+    endCost?: number
+    adders?: Adder[]
+    advantages?: Advantage[]
+    limitations?: Limitation[]
+  }
+}
 
 /**
  * Describes a power.
@@ -35,14 +64,22 @@ import * as HeroMath from './math.js'
  * * `description` -- Description of the limitation
  */
 export default class Power {
+  private adders: Adder[]
+  private advantages: Advantage[]
+  private baseCost: number
+  private description: string
+  private endCost: number
+  private limitations: Limitation[]
+  private name: string
+
   /**
    * Formats the given number of quarters into the text representation of the
    * reduced form of the number of quarters.
    *
-   * @param {Number} quarters Number of quarters to convert
+   * @param quarters Number of quarters to convert
    * @returns Text representation of the number of quarters given
    */
-  static formatQuarters(quarters) {
+  static formatQuarters(quarters: number) {
     const wholes = Math.floor(quarters / 4)
     const remainder = quarters % 4
     let remainderText = ''
@@ -64,14 +101,14 @@ export default class Power {
     return `${wholes}${remainderText}`
   }
 
-  constructor({ name, description, baseCost, endCost, adders, advantages, limitations }) {
-    this.name = name ?? ''
-    this.description = description ?? ''
-    this.baseCost = baseCost ?? 1
-    this.endCost = endCost ?? 0
-    this.adders = adders ?? []
-    this.advantages = advantages ?? []
-    this.limitations = limitations ?? []
+  constructor(params: Power.Params) {
+    this.name = params.name ?? ''
+    this.description = params.description ?? ''
+    this.baseCost = params.baseCost ?? 1
+    this.endCost = params.endCost ?? 0
+    this.adders = params.adders ?? []
+    this.advantages = params.advantages ?? []
+    this.limitations = params.limitations ?? []
   }
 
   /**
@@ -95,7 +132,7 @@ export default class Power {
       advantageQuarters += advantage.quarters
     }
 
-    cost = HeroMath.round(cost * (advantageQuarters / 4), 'down')
+    cost = HeroMath.round(cost * (advantageQuarters / 4), RoundDirection.Down)
 
     return cost < 1 ? 1 : cost
   }
@@ -115,7 +152,7 @@ export default class Power {
       limitationQuarters += limitation.quarters
     }
 
-    cost = HeroMath.round(cost / (limitationQuarters / 4), 'down')
+    cost = HeroMath.round(cost / (limitationQuarters / 4), RoundDirection.Down)
 
     return cost < 1 ? 1 : cost
   }

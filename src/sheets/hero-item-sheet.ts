@@ -26,8 +26,6 @@ export default class HeroItemSheet extends ItemSheet {
   getData() {
     const data = super.getData()
 
-    data.config = CONFIG.HERO
-
     return data
   }
 }

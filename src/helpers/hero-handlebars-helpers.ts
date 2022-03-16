@@ -9,17 +9,17 @@ export default class HeroHandlebarsHelpers {
    * @param {*} b
    * @returns Concatenated representation of the two values
    */
-  static concat(a, b) {
+  static concat(a: any, b: any) {
     return `${a}${b}`
   }
 
   /**
    * Changes the supplied text to all uppercase.
    *
-   * @param {*} text Text to shift to uppercase
+   * @param text Text to shift to uppercase
    * @returns Uppercase version of the supplied text
    */
-  static upcase(text) {
+  static upcase(text: string) {
     return text.toUpperCase()
   }
 

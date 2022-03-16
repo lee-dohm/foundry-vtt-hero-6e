@@ -30,12 +30,12 @@ export default class HeroActorSheet extends ActorSheet {
   /**
    * Activates listeners for events relevant to the actor sheet.
    *
-   * @param {*} html HTML fragment within which to activate listeners
+   * @param html HTML fragment within which to activate listeners
    */
-  activateListeners(html) {
+  activateListeners(html: JQuery<HTMLElement>) {
     super.activateListeners(html)
 
-    html.find('.rollable-characteristic').click(this._onCharacteristicRoll.bind(this))
+    html.find('.rollable-characteristic').on('click', (event) => this._onCharacteristicRoll(event))
   }
 
   /**
@@ -46,20 +46,32 @@ export default class HeroActorSheet extends ActorSheet {
   getData() {
     const data = super.getData()
 
-    data.config = CONFIG.HERO
-
     HeroLog.dump('Calling HeroActorSheet.getData', data)
 
     return data
   }
 
-  async _onCharacteristicRoll(event) {
+  async _onCharacteristicRoll(event: JQuery.ClickEvent) {
     event.preventDefault()
 
-    const dataset = event.currentTarget.dataset
-    const { rollBase, rollLabel } = dataset
-    const d = await SkillRollDialog.create({ actor: this.actor, base: rollBase, label: rollLabel })
+    if (event && event.currentTarget) {
+      const target = event.currentTarget as HTMLElement
+      const dataset = target.dataset
+      const { rollBase, rollLabel } = dataset
 
-    d.render(true)
+      if (!rollBase || !rollLabel) {
+        throw new Error(
+          `Both 'data-roll-base' and 'data-roll-label' have to be set on characteristic roll elements`
+        )
+      }
+
+      const d = await SkillRollDialog.create({
+        actor: this.actor,
+        base: parseInt(rollBase),
+        label: rollLabel
+      })
+
+      d.render(true)
+    }
   }
 }
