@@ -5,8 +5,8 @@ type LogFunction = (..._data: any[]) => void
 /**
  * Logs information passed to it at the `debug` level.
  */
-export function debug() {
-  const args = [`${HERO_CONFIG.system.shortName} |`, ...arguments]
+export function debug(...data: any[]) {
+  const args = [`${HERO_CONFIG.system.shortName} |`, ...data]
 
   console.debug(...args)
 }
@@ -38,8 +38,8 @@ export function dump(description: string, obj: any, level?: string | LogFunction
 /**
  * Logs information passed to it at the normal or `info` level.
  */
-export function log() {
-  const args = [`${HERO_CONFIG.system.shortName} |`, ...arguments]
+export function log(...data: any[]) {
+  const args = [`${HERO_CONFIG.system.shortName} |`, ...data]
 
   console.log(...args)
 }
