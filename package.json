@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/lee-dohm/foundry-vtt-hero-6e#readme",
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^9.249.4",
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.255.0",
     "eslint": "^7.20.0",
     "eslint-plugin-github": "^4.1.1",
     "eslint-plugin-jest": "^24.1.5",
