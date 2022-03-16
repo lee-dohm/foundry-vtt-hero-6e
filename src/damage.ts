@@ -84,7 +84,7 @@ export async function rollKillingDamage(
     throw new InvalidDamageFormulaError(formula)
   }
 
-  const damageFormula = buildDamageFormula((match.groups as unknown) as DamageRollProps)
+  const damageFormula = buildDamageFormula(match.groups as unknown as DamageRollProps)
   const damageRoll = new Roll(damageFormula)
   const damageRolled = await damageRoll.evaluate({ async: true })
 
@@ -107,7 +107,7 @@ export async function rollNormalDamage(formula: string) {
     throw new InvalidDamageFormulaError(formula)
   }
 
-  const damageFormula = buildDamageFormula((match.groups as unknown) as DamageRollProps)
+  const damageFormula = buildDamageFormula(match.groups as unknown as DamageRollProps)
   const damageRoll = new Roll(damageFormula)
   const damageRolled = await damageRoll.evaluate({ async: true })
 
