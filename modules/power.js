@@ -1,5 +1,4 @@
-import * as HeroMath from './math.js'
-
+import { HeroMath, RoundDirection } from './math.js';
 /**
  * Describes a power.
  *
@@ -35,88 +34,75 @@ import * as HeroMath from './math.js'
  * * `description` -- Description of the limitation
  */
 export default class Power {
-  /**
-   * Formats the given number of quarters into the text representation of the
-   * reduced form of the number of quarters.
-   *
-   * @param {Number} quarters Number of quarters to convert
-   * @returns Text representation of the number of quarters given
-   */
-  static formatQuarters(quarters) {
-    const wholes = Math.floor(quarters / 4)
-    const remainder = quarters % 4
-    let remainderText = ''
-
-    switch (remainder) {
-      case 1:
-        remainderText = '¼'
-        break
-
-      case 2:
-        remainderText = '½'
-        break
-
-      case 3:
-        remainderText = '¾'
-        break
+    constructor(params) {
+        this.name = params.name ?? '';
+        this.description = params.description ?? '';
+        this.baseCost = params.baseCost ?? 1;
+        this.endCost = params.endCost ?? 0;
+        this.adders = params.adders ?? [];
+        this.advantages = params.advantages ?? [];
+        this.limitations = params.limitations ?? [];
     }
-
-    return `${wholes}${remainderText}`
-  }
-
-  constructor({ name, description, baseCost, endCost, adders, advantages, limitations }) {
-    this.name = name ?? ''
-    this.description = description ?? ''
-    this.baseCost = baseCost ?? 1
-    this.endCost = endCost ?? 0
-    this.adders = adders ?? []
-    this.advantages = advantages ?? []
-    this.limitations = limitations ?? []
-  }
-
-  /**
-   * The active cost of the power.
-   *
-   * The active cost is the base cost plus all adders and advantages. Also used as the
-   * basis for a number of other things like the effect of **Drain** or calculating the
-   * base `endCost`.
-   *
-   * The minimum active cost is 1.
-   */
-  get activeCost() {
-    let cost = this.baseCost
-
-    for (const adder of this.adders) {
-      cost += adder.cost
+    /**
+     * Formats the given number of quarters into the text representation of the
+     * reduced form of the number of quarters.
+     *
+     * @param quarters Number of quarters to convert
+     * @returns Text representation of the number of quarters given
+     */
+    static formatQuarters(quarters) {
+        const wholes = Math.floor(quarters / 4);
+        const remainder = quarters % 4;
+        let remainderText = '';
+        switch (remainder) {
+            case 1:
+                remainderText = '¼';
+                break;
+            case 2:
+                remainderText = '½';
+                break;
+            case 3:
+                remainderText = '¾';
+                break;
+        }
+        return `${wholes}${remainderText}`;
     }
-
-    let advantageQuarters = 4
-    for (const advantage of this.advantages) {
-      advantageQuarters += advantage.quarters
+    /**
+     * The active cost of the power.
+     *
+     * The active cost is the base cost plus all adders and advantages. Also used as the
+     * basis for a number of other things like the effect of **Drain** or calculating the
+     * base `endCost`.
+     *
+     * The minimum active cost is 1.
+     */
+    get activeCost() {
+        let cost = this.baseCost;
+        for (const adder of this.adders) {
+            cost += adder.cost;
+        }
+        let advantageQuarters = 4;
+        for (const advantage of this.advantages) {
+            advantageQuarters += advantage.quarters;
+        }
+        cost = HeroMath.round(cost * (advantageQuarters / 4), RoundDirection.Down);
+        return cost < 1 ? 1 : cost;
     }
-
-    cost = HeroMath.round(cost * (advantageQuarters / 4), 'down')
-
-    return cost < 1 ? 1 : cost
-  }
-
-  /**
-   * The real cost of the power.
-   *
-   * The real cost is the active cost minus all limitations.
-   *
-   * The minimum real cost is 1.
-   */
-  get realCost() {
-    let cost = this.activeCost
-
-    let limitationQuarters = 4
-    for (const limitation of this.limitations) {
-      limitationQuarters += limitation.quarters
+    /**
+     * The real cost of the power.
+     *
+     * The real cost is the active cost minus all limitations.
+     *
+     * The minimum real cost is 1.
+     */
+    get realCost() {
+        let cost = this.activeCost;
+        let limitationQuarters = 4;
+        for (const limitation of this.limitations) {
+            limitationQuarters += limitation.quarters;
+        }
+        cost = HeroMath.round(cost / (limitationQuarters / 4), RoundDirection.Down);
+        return cost < 1 ? 1 : cost;
     }
-
-    cost = HeroMath.round(cost / (limitationQuarters / 4), 'down')
-
-    return cost < 1 ? 1 : cost
-  }
 }
+//# sourceMappingURL=power.js.map
