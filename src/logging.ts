@@ -1,5 +1,7 @@
 import { HERO_CONFIG } from './config'
 
+type LogFunction = (..._data: any[]) => void
+
 /**
  * Logs information passed to it at the `debug` level.
  */
@@ -18,8 +20,8 @@ export function debug() {
  * @param obj Object to dump to the log
  * @param level Log level to use when dumping the information, defaults to `debug`
  */
-export function dump(description: string, obj: any, level?: string) {
-  let fn = null
+export function dump(description: string, obj: any, level?: string | LogFunction) {
+  let fn: LogFunction
 
   if (typeof level === 'function') {
     fn = level
