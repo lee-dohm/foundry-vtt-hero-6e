@@ -7,8 +7,8 @@ export class SkillRollDialog extends Dialog {
   /**
    * Constructs the dialog prior to rendering.
    *
-   * @param {Object} dialogData Configuration options for the dialog.
-   * @param {ApplicationOptions} options Dialog rendering options.
+   * @param dialogData Configuration options for the dialog.
+   * @param options Dialog rendering options.
    */
   constructor(dialogData, options) {
     super(dialogData, options)
@@ -145,7 +145,7 @@ export class SkillRollDialog extends Dialog {
   /**
    * Rolls the dice based on the current values in the dialog and closes it.
    *
-   * @param {Event} event Event that triggered the roll
+   * @param event Event that triggered the roll
    */
   async _roll(event) {
     event.preventDefault()

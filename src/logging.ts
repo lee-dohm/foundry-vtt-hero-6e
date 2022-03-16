@@ -1,4 +1,4 @@
-import { HERO_CONFIG } from './config'
+import { HERO_CONFIG } from './config.js'
 
 type LogFunction = (..._data: any[]) => void
 
