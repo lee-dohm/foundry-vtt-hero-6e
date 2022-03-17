@@ -10,8 +10,8 @@ Since I do all my development work on macOS, all of these instructions have _onl
 
 Install required software:
 
-* Install [Foundry VTT][foundry] v9
-* Install Node v14
+- Install [Foundry VTT][foundry] v9
+- Install Node v14
 
 Make the
 
