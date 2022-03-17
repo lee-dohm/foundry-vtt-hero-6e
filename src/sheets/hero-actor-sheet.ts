@@ -1,4 +1,4 @@
-import * as HeroLog from '../logging.js'
+import HeroLog from '../logging.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
 import CharacteristicRollButton from './elements/characteristic-roll-button.js'
 

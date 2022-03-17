@@ -1,4 +1,4 @@
-import * as HeroLog from './logging.js'
+import HeroLog from './logging.js'
 
 import HeroHandlebarsHelpers from './helpers/hero-handlebars-helpers.js'
 

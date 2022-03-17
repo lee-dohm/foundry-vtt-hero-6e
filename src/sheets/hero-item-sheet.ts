@@ -1,3 +1,5 @@
+import HeroLog from '../logging.js'
+
 /**
  * Base item sheet for the Hero game system.
  */
@@ -25,6 +27,8 @@ export default class HeroItemSheet extends ItemSheet {
    */
   getData() {
     const data = super.getData()
+
+    HeroLog.dump('Calling HeroItemSheet.getData', data)
 
     return data
   }
