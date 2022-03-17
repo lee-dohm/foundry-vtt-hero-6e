@@ -9,10 +9,10 @@ This is a [HERO System 6<sup>th</sup> Edition][hero] game system package for the
 
 1. Install Node v14
 1. Execute the following commands in the root of the clean repository:
-    ```bash
-    $ npm install
-    $ npm run build
-    ```
+   ```bash
+   $ npm install
+   $ npm run build
+   ```
 
 ## License
 
