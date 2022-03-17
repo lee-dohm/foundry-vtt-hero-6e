@@ -4,37 +4,38 @@
   </header>
 
   <div class="sheet-content flexrow">
-    <div class="item-stats flexcol">
-      <div class="item-stat">
-        <label>{{localize "hero6e.Points"}}</label>
-        <input name="data.points" type="text" value="{{data.points}}" data-dtype="Number" />
+    <div class="flexcol">
+      <div class="form-group">
+        <label class="mr-1">{{localize "hero6e.Points"}}</label>
+        <input name="data.points" type="text" value="{{item.data.data.points}}" data-dtype="Number" />
       </div>
-      <div class="item-stat">
+      <div class="form-group">
         <label>{{localize "hero6e.RollType"}}</label>
         <select name="data.roll.type">
-          {{selectOptions config.skillRollTypes selected=data.roll.type localize=true}}
+          {{selectOptions config.skillRollTypes selected=item.data.data.roll.type localize=true}}
         </select>
       </div>
       {{#if (eq data.roll.type "characteristic")}}
-        <div class="item-stat">
+        <div class="form-group">
           <label>{{localize "hero6e.Characteristic"}}</label>
           <select name="data.roll.characteristic">
             {{selectOptions config.skillRollCharacteristics selected=data.roll.characteristic localize=true}}
           </select>
         </div>
-        <div class="item-stat">
+        <div class="form-group">
           <label>{{localize "hero6e.Bonus"}}</label>
           <input name="data.roll.bonus" type="text" value="{{data.roll.bonus}}" data-dtype="Number" />
         </div>
       {{/if}}
       {{#if (eq data.roll.type "raw")}}
-        <div class="item-stat">
+        <div class="form-group">
           <label>{{localize "hero6e.Roll"}}</label>
           <input name="data.roll.value" type="text" value="{{data.roll.value}}" data-dtype="Number" />
         </div>
       {{/if}}
     </div>
-
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    <div class="flex2">
+      {{!-- {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} --}}
+    </div>
   </div>
 </form>

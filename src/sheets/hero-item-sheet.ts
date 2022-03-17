@@ -1,4 +1,9 @@
+import { HERO_CONFIG } from '../config.js'
 import HeroLog from '../logging.js'
+
+type HeroItemSheetData = ItemSheet.Data<ItemSheet.Options> & {
+  config: object
+}
 
 /**
  * Base item sheet for the Hero game system.
@@ -26,7 +31,8 @@ export default class HeroItemSheet extends ItemSheet {
    * @returns The item data
    */
   getData() {
-    const data = super.getData()
+    let data = super.getData() as HeroItemSheetData
+    data.config = HERO_CONFIG
 
     HeroLog.dump('Calling HeroItemSheet.getData', data)
 

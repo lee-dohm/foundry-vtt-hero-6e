@@ -1,6 +1,11 @@
+import CharacteristicRollButton from './elements/characteristic-roll-button.js'
+import { HERO_CONFIG } from '../config.js'
 import HeroLog from '../logging.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
-import CharacteristicRollButton from './elements/characteristic-roll-button.js'
+
+type HeroActorSheetData = ActorSheet.Data<ActorSheet.Options> & {
+  config: object
+}
 
 /**
  * Base actor sheet for the Hero game system.
@@ -45,7 +50,8 @@ export default class HeroActorSheet extends ActorSheet {
    * @returns The actor data
    */
   getData() {
-    const data = super.getData()
+    let data = super.getData() as HeroActorSheetData
+    data.config = HERO_CONFIG
 
     HeroLog.dump('Calling HeroActorSheet.getData', data)
 
