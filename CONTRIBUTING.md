@@ -21,6 +21,7 @@ Make the
 1. Create a symlink named `hero6e` to the root of the repository on your machine
 
 [clone-instructions]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+[foundry]: https://foundryvtt.com
 
 ### Build process
 
