@@ -5,32 +5,42 @@
 
   <div class="sheet-content flexrow">
     <div class="flexcol">
-      <div class="form-group">
-        <label class="mr-1">{{localize "hero6e.Points"}}</label>
-        <input name="data.points" type="text" value="{{item.data.data.points}}" data-dtype="Number" />
+      <div class="flexrow my-1">
+        <div>{{localize "hero6e.Points"}}</div>
+        <div>
+          <input name="data.points" type="text" value="{{item.data.data.points}}" data-dtype="Number" />
+        </div>
       </div>
-      <div class="form-group">
-        <label>{{localize "hero6e.RollType"}}</label>
-        <select name="data.roll.type">
-          {{selectOptions config.skillRollTypes selected=item.data.data.roll.type localize=true}}
-        </select>
-      </div>
-      {{#if (eq data.roll.type "characteristic")}}
-        <div class="form-group">
-          <label>{{localize "hero6e.Characteristic"}}</label>
-          <select name="data.roll.characteristic">
-            {{selectOptions config.skillRollCharacteristics selected=data.roll.characteristic localize=true}}
+      <div class="flexrow my-1">
+        <div>{{localize "hero6e.RollType"}}</div>
+        <div>
+          <select name="data.roll.type">
+            {{selectOptions config.skillRollTypes selected=item.data.data.roll.type localize=true}}
           </select>
         </div>
-        <div class="form-group">
-          <label>{{localize "hero6e.Bonus"}}</label>
-          <input name="data.roll.bonus" type="text" value="{{data.roll.bonus}}" data-dtype="Number" />
+      </div>
+      {{#if (eq data.data.roll.type "characteristic")}}
+        <div class="flexrow my-1">
+          <div>{{localize "hero6e.Characteristic"}}</div>
+          <div>
+            <select name="data.roll.characteristic">
+              {{selectOptions config.skillRollCharacteristics selected=item.data.data.roll.characteristic localize=true}}
+            </select>
+          </div>
+        </div>
+        <div class="flexrow my-1">
+          <div>{{localize "hero6e.Bonus"}}</div>
+          <div>
+            <input name="data.roll.bonus" type="text" value="{{item.data.data.roll.bonus}}" data-dtype="Number" />
+          </div>
         </div>
       {{/if}}
-      {{#if (eq data.roll.type "raw")}}
-        <div class="form-group">
-          <label>{{localize "hero6e.Roll"}}</label>
-          <input name="data.roll.value" type="text" value="{{data.roll.value}}" data-dtype="Number" />
+      {{#if (eq data.data.roll.type "raw")}}
+        <div class="flexrow my-1">
+          <div>{{localize "hero6e.Roll"}}</div>
+          <div>
+            <input name="data.roll.value" type="text" value="{{item.data.data.roll.value}}" data-dtype="Number" />
+          </div>
         </div>
       {{/if}}
     </div>
