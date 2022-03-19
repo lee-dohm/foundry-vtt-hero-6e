@@ -3,8 +3,10 @@ import { HERO_CONFIG } from '../config.js'
 import HeroLog from '../logging.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
 
-type HeroActorSheetData = ActorSheet.Data<ActorSheet.Options> & {
-  config: object
+declare namespace HeroActorSheet {
+  export type Data = ActorSheet.Data<ActorSheet.Options> & {
+    config: object
+  }
 }
 
 /**
@@ -50,7 +52,7 @@ export default class HeroActorSheet extends ActorSheet {
    * @returns The actor data
    */
   getData() {
-    let data = super.getData() as HeroActorSheetData
+    let data = super.getData() as HeroActorSheet.Data
     data.config = HERO_CONFIG
 
     HeroLog.dump(`Data supplied to ${this.options.template}`, data)
