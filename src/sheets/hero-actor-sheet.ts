@@ -53,7 +53,7 @@ export default class HeroActorSheet extends ActorSheet {
     let data = super.getData() as HeroActorSheetData
     data.config = HERO_CONFIG
 
-    HeroLog.dump('Calling HeroActorSheet.getData', data)
+    HeroLog.dump(`Data supplied to ${this.options.template}`, data)
 
     return data
   }

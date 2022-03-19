@@ -1,5 +1,6 @@
 import { HERO_CONFIG } from '../config.js'
 import HeroLog from '../logging.js'
+import Path from '../path.js'
 
 type HeroItemSheetData = ItemSheet.Data<ItemSheet.Options> & {
   config: object
@@ -22,7 +23,7 @@ export default class HeroItemSheet extends ItemSheet {
    * Template to use when rendering the item sheet.
    */
   get template() {
-    return `systems/hero6e/templates/sheets/${this.item.type}-sheet.hbs`
+    return Path.join(this.getTemplateDir(), this.getTemplateName())
   }
 
   /**
@@ -32,10 +33,19 @@ export default class HeroItemSheet extends ItemSheet {
    */
   getData() {
     let data = super.getData() as HeroItemSheetData
+
     data.config = HERO_CONFIG
 
-    HeroLog.dump('Calling HeroItemSheet.getData', data)
+    HeroLog.dump(`Data supplied to ${this.template}`, data)
 
     return data
+  }
+
+  protected getTemplateDir() {
+    return 'systems/hero6e/templates/sheets'
+  }
+
+  protected getTemplateName() {
+    return `${this.item.type}-sheet.hbs`
   }
 }
