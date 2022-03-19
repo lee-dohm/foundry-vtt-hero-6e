@@ -4,6 +4,9 @@ import HeroLog from '../logging.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
 
 declare namespace HeroActorSheet {
+  /**
+   * Data used to render the actor sheet.
+   */
   export type Data = ActorSheet.Data<ActorSheet.Options> & {
     config: object
   }
@@ -47,9 +50,9 @@ export default class HeroActorSheet extends ActorSheet {
   }
 
   /**
-   * Retrieves the actor data to be displayed on the sheet.
+   * Retrieves all of the data to be used to render the actor sheet.
    *
-   * @returns The actor data
+   * @returns Data used to render the actor sheet.
    */
   getData() {
     let data = super.getData() as HeroActorSheet.Data
@@ -71,13 +74,13 @@ export default class HeroActorSheet extends ActorSheet {
     if (event.currentTarget) {
       const button = event.currentTarget as CharacteristicRollButton
 
-      const d = await SkillRollDialog.create({
+      const dialog = await SkillRollDialog.create({
         actor: this.actor,
         base: button.rollBase,
         label: button.rollLabel
       })
 
-      d.render(true)
+      dialog.render(true)
     }
   }
 }
