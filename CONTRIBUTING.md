@@ -23,7 +23,6 @@ Make the
    ln -s ~/Source/foundry-vtt-hero-6e hero6e
    ```
 
-
 [clone-instructions]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 [foundry]: https://foundryvtt.com
 
