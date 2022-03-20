@@ -2,8 +2,10 @@ import { HERO_CONFIG } from '../config.js'
 import HeroLog from '../logging.js'
 import Path from '../path.js'
 
-type HeroItemSheetData = ItemSheet.Data<ItemSheet.Options> & {
-  config: object
+declare namespace HeroItemSheet {
+  export type Data = ItemSheet.Data<ItemSheet.Options> & {
+    config: object
+  }
 }
 
 /**
@@ -32,8 +34,7 @@ export default class HeroItemSheet extends ItemSheet {
    * @returns The item data
    */
   getData() {
-    let data = super.getData() as HeroItemSheetData
-
+    let data = super.getData() as HeroItemSheet.Data
     data.config = HERO_CONFIG
 
     HeroLog.dump(`Data supplied to ${this.template}`, data)
