@@ -37,12 +37,16 @@ interface SkillDataSourceData {
   description: string
   points: number
   roll: SkillRoll
+  skillType: string
+  source: string
 }
 
 interface SkillDataPropertiesData {
   description: string
   points: number
   roll: SkillRollProperties
+  skillType: string
+  source: string
 }
 
 interface SkillDataSource {
@@ -59,11 +63,11 @@ export type HeroItemDataSource = SkillDataSource
 export type HeroItemDataProperties = SkillDataProperties
 
 export class HeroItem extends Item {
-  get _itemData() {
+  get itemData() {
     return this.data
   }
 
-  get _itemGameData() {
+  get itemGameData() {
     return this.data.data
   }
 }

@@ -3,6 +3,9 @@ import HeroLog from '../logging.js'
 import Path from '../path.js'
 
 declare namespace HeroItemSheet {
+  /**
+   * Data used to render the item sheet.
+   */
   export type Data = ItemSheet.Data<ItemSheet.Options> & {
     config: object
   }
@@ -17,7 +20,8 @@ export default class HeroItemSheet extends ItemSheet {
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ['hero6e', 'sheet', 'item']
+      classes: ['hero6e', 'sheet', 'item'],
+      width: 700
     })
   }
 

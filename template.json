@@ -84,19 +84,22 @@
       },
       "pointCost": {
         "points": 0
+      },
+      "source": {
+        "source": ""
       }
     },
     "complication": {
-      "templates": ["description", "pointCost"]
+      "templates": ["description", "pointCost", "source"]
     },
     "equipment": {
-      "templates": ["description"],
+      "templates": ["description", "source"],
       "cost": 0,
       "quantity": 0,
       "weight": 0
     },
     "power": {
-      "templates": ["description", "pointCost"],
+      "templates": ["description", "pointCost", "source"],
       "adders": [],
       "advantages": [],
       "baseCost": 0,
@@ -104,13 +107,14 @@
       "limitations": []
     },
     "skill": {
-      "templates": ["description", "pointCost"],
+      "templates": ["description", "pointCost", "source"],
       "roll": {
         "type": "characteristic",
         "characteristic": "int",
         "bonus": 0,
         "value": 11
-      }
+      },
+      "skillType": ""
     }
   }
 }

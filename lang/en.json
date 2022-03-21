@@ -29,6 +29,8 @@
     "RollSuccess": "{description} roll succeeded by {margin}",
     "RollType": "Roll Type",
     "Skills": "Skills",
+    "SkillType": "Skill Type",
+    "Source": "Source",
     "Status": "Status",
     "characteristic": {
       "longNames": {
