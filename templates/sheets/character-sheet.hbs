@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header">
-    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
-    <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+    <img src="{{data.img}}" data-edit="img" title="{{data.name}}" height="64" width="64"/>
+    <h1 class="charname"><input name="name" type="text" value="{{data.name}}" placeholder="Name"/></h1>
   </header>
 
   <div class="flexrow block status-block my-2">
@@ -11,7 +11,7 @@
   <div class="flexrow">
     <div class="characteristics-block flexcol m-1">
       <div class="section-header">{{localize "hero6e.Characteristics"}}</div>
-      {{#each actor.data.data.characteristics}}
+      {{#each data.data.characteristics}}
         <div class="flexrow flexalign-center my-1">
           <div>
             <input class="characteristic" name="data.characteristics.{{@key}}.value" type="text" value="{{this.value}}" data-dtype="Number"/>

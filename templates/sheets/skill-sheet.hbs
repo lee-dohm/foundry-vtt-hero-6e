@@ -3,10 +3,10 @@
     <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     <div class="flexrow">
       <div>
-        <input name="data.skillType" type="text" value="{{data.skillType}}" placeholder="{{localize "hero6e.SkillType"}}" />
+        <input name="data.skillType" type="text" value="{{data.data.skillType}}" placeholder="{{localize "hero6e.SkillType"}}" />
       </div>
       <div>
-        <input name="data.source" type="text" value="{{data.source}}" placeholder="{{localize "hero6e.Source"}}" />
+        <input name="data.source" type="text" value="{{data.data.source}}" placeholder="{{localize "hero6e.Source"}}" />
       </div>
     </div>
   </header>
@@ -16,14 +16,14 @@
       <div class="flexrow my-1">
         <div>{{localize "hero6e.Points"}}</div>
         <div>
-          <input name="data.points" type="text" value="{{data.points}}" data-dtype="Number" />
+          <input name="data.points" type="text" value="{{data.data.points}}" data-dtype="Number" />
         </div>
       </div>
       <div class="flexrow my-1">
         <div>{{localize "hero6e.RollType"}}</div>
         <div>
           <select name="data.roll.type">
-            {{selectOptions config.skillRollTypes selected=data.roll.type localize=true}}
+            {{selectOptions config.skillRollTypes selected=data.data.roll.type localize=true}}
           </select>
         </div>
       </div>
@@ -32,28 +32,28 @@
           <div>{{localize "hero6e.Characteristic"}}</div>
           <div>
             <select name="data.roll.characteristic">
-              {{selectOptions config.skillRollCharacteristics selected=data.roll.characteristic localize=true}}
+              {{selectOptions config.skillRollCharacteristics selected=data.data.roll.characteristic localize=true}}
             </select>
           </div>
         </div>
         <div class="flexrow my-1">
           <div>{{localize "hero6e.Bonus"}}</div>
           <div>
-            <input name="data.roll.bonus" type="text" value="{{data.roll.bonus}}" data-dtype="Number" />
+            <input name="data.roll.bonus" type="text" value="{{data.data.roll.bonus}}" data-dtype="Number" />
           </div>
         </div>
       {{/if}}
-      {{#if (eq data.data.roll.type "raw")}}
+      {{#if (eq data.roll.type "raw")}}
         <div class="flexrow my-1">
           <div>{{localize "hero6e.Roll"}}</div>
           <div>
-            <input name="data.roll.value" type="text" value="{{data.roll.value}}" data-dtype="Number" />
+            <input name="data.roll.value" type="text" value="{{data.data.roll.value}}" data-dtype="Number" />
           </div>
         </div>
       {{/if}}
     </div>
     <div class="flex2">
-      {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
     </div>
   </section>
 </form>

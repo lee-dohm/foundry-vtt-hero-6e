@@ -36,7 +36,9 @@ export default class HeroLog {
     }
 
     fn(`${HERO_CONFIG.system.shortName} | ${description}`)
-    fn(JSON.parse(JSON.stringify(obj)))
+    if (obj) {
+      fn(JSON.parse(JSON.stringify(obj)))
+    }
   }
 
   /**

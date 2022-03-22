@@ -1,4 +1,3 @@
-import CharacteristicRollButton from './elements/characteristic-roll-button.js'
 import { HERO_CONFIG } from '../config.js'
 import HeroLog from '../logging.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
@@ -72,12 +71,20 @@ export default class HeroActorSheet extends ActorSheet {
     event.preventDefault()
 
     if (event.currentTarget) {
-      const button = event.currentTarget as CharacteristicRollButton
+      const button = event.currentTarget as HTMLButtonElement
+
+      if (!button.dataset.rollBase) {
+        throw new Error('The data-roll-base attribute must be set on all rollable buttons')
+      }
+
+      if (!button.dataset.rollLabel) {
+        throw new Error('The data-roll-label attribute must be set on all rollable buttons')
+      }
 
       const dialog = await SkillRollDialog.create({
         actor: this.actor,
-        base: button.rollBase,
-        label: button.rollLabel
+        base: parseInt(button.dataset.rollBase),
+        label: button.dataset.rollLabel
       })
 
       dialog.render(true)
