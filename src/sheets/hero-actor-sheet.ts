@@ -1,6 +1,7 @@
 import { HERO_CONFIG } from '../config.js'
 import HeroLog from '../logging.js'
 import { SkillRollDialog } from '../dialogs/skill-roll-dialog.js'
+import { getGame } from '../helpers/global-helpers.js'
 
 declare namespace HeroActorSheet {
   /**
@@ -23,6 +24,7 @@ export default class HeroActorSheet extends ActorSheet {
       baseApplication: 'HeroActorSheet',
       template: 'systems/hero6e/templates/sheets/character-sheet.hbs',
       classes: ['hero6e', 'sheet', 'actor', 'character'],
+      height: 835,
       tabs: [
         {
           navSelector: '.tabs.list-navigation',
@@ -46,6 +48,7 @@ export default class HeroActorSheet extends ActorSheet {
     super.activateListeners(html)
 
     html.find('.rollable-characteristic').on('click', (event) => this._onCharacteristicRoll(event))
+    html.find('.item-create').on('click', (event) => this.onItemCreate(event))
   }
 
   /**
@@ -60,6 +63,27 @@ export default class HeroActorSheet extends ActorSheet {
     HeroLog.dump(`Data supplied to ${this.options.template}`, data)
 
     return data
+  }
+
+  async onItemCreate(event: JQuery.ClickEvent) {
+    event.preventDefault()
+
+    if (event.currentTarget) {
+      const link = event.currentTarget as HTMLElement
+
+      if (!link.dataset.itemType) {
+        throw new Error('The data-item-type attribute must be set on all item create links')
+      }
+
+      const itemType = link.dataset.itemType
+      const itemData = {
+        name: getGame().i18n.format("hero6e.ItemNew", { type: getGame().i18n.localize(`hero6e.ItemType${itemType.capitalize()}`) }),
+        type: itemType,
+        data: {}
+      }
+
+      return this.actor.createEmbeddedDocuments('Item', [itemData])
+    }
   }
 
   /**

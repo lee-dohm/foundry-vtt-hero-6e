@@ -1,6 +1,7 @@
 {
   "hero6e": {
     "ActiveCost": "Active Cost",
+    "AddSkill": "Add Skill",
     "BaseCost": "Base Cost",
     "Bonus": "Bonus",
     "Cancel": "Cancel",
@@ -10,6 +11,8 @@
     "Complications": "Complications",
     "Description": "Description",
     "Equipment": "Equipment",
+    "ItemNew": "New {type}",
+    "ItemTypeSkill": "Skill",
     "ModifiedRollFail": "{description} roll at {modifier} failed by {margin}",
     "ModifiedRollExactSuccess": "{description} roll at {modifier} succeeded exactly",
     "ModifiedRollSuccess": "{description} roll at {modifier} succeeded by {margin}",

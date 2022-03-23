@@ -1,5 +1,9 @@
         <div class="tab skills" data-group="primary" data-tab="skills">
-          <div class="section-header">{{localize "hero6e.Skills"}}</div>
+          <div class="section-header">
+            <a class="item-control item-create" data-item-type="skill">
+              {{localize "hero6e.AddSkill"}}
+            </a>
+          </div>
 
           {{#each actor.data.data.skills}}
             <div class="flexrow">
