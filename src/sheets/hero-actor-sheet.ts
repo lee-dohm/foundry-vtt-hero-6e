@@ -65,6 +65,11 @@ export default class HeroActorSheet extends ActorSheet {
     return data
   }
 
+  /**
+   * Handler for the various add item links on the actor sheet.
+   *
+   * @param event Click event for the "Add" link.
+   */
   async onItemCreate(event: JQuery.ClickEvent) {
     event.preventDefault()
 
@@ -77,12 +82,14 @@ export default class HeroActorSheet extends ActorSheet {
 
       const itemType = link.dataset.itemType
       const itemData = {
-        name: getGame().i18n.format("hero6e.ItemNew", { type: getGame().i18n.localize(`hero6e.ItemType${itemType.capitalize()}`) }),
+        name: getGame().i18n.format('hero6e.ItemNew', {
+          type: getGame().i18n.localize(`hero6e.ItemType${itemType.capitalize()}`)
+        }),
         type: itemType,
         data: {}
       }
 
-      return this.actor.createEmbeddedDocuments('Item', [itemData])
+      this.actor.createEmbeddedDocuments('Item', [itemData])
     }
   }
 
