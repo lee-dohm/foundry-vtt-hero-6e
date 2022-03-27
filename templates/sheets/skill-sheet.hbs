@@ -1,4 +1,4 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
   <header class="flexrow">
     <img class="profile" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="64" width="64"/>
 
@@ -57,7 +57,7 @@
         </div>
       {{/if}}
     </div>
-    <div class="flex2">
+    <div class="editor-block flex2">
       {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
     </div>
   </section>
