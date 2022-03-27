@@ -47,7 +47,7 @@ export default class HeroActorSheet extends ActorSheet {
   activateListeners(html: JQuery<HTMLElement>) {
     super.activateListeners(html)
 
-    html.find('.rollable-characteristic').on('click', (event) => this._onCharacteristicRoll(event))
+    html.find('.rollable-characteristic').on('click', (event) => this.onCharacteristicRoll(event))
     html.find('.item-create').on('click', (event) => this.onItemCreate(event))
   }
 
@@ -70,7 +70,7 @@ export default class HeroActorSheet extends ActorSheet {
    *
    * @param event Click event for the "Add" link.
    */
-  async onItemCreate(event: JQuery.ClickEvent) {
+  protected async onItemCreate(event: JQuery.ClickEvent) {
     event.preventDefault()
 
     if (event.currentTarget) {
@@ -98,7 +98,7 @@ export default class HeroActorSheet extends ActorSheet {
    *
    * @param event Click event for the characteristic roll button.
    */
-  async _onCharacteristicRoll(event: JQuery.ClickEvent) {
+  protected async onCharacteristicRoll(event: JQuery.ClickEvent) {
     event.preventDefault()
 
     if (event.currentTarget) {
