@@ -1,18 +1,23 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  <header class="flexcol">
-    <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-    <div class="flexrow">
-      <div>
-        <input name="data.skillType" type="text" value="{{data.data.skillType}}" placeholder="{{localize "hero6e.SkillType"}}" />
-      </div>
-      <div>
-        <input name="data.source" type="text" value="{{data.data.source}}" placeholder="{{localize "hero6e.Source"}}" />
+  <header class="flexrow">
+    <img class="profile" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="64" width="64"/>
+
+    <div class="flexcol">
+      <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+
+      <div class="flexrow">
+        <div>
+          <input name="data.skillType" type="text" value="{{data.data.skillType}}" placeholder="{{localize "hero6e.SkillType"}}" />
+        </div>
+        <div>
+          <input name="data.source" type="text" value="{{data.data.source}}" placeholder="{{localize "hero6e.Source"}}" />
+        </div>
       </div>
     </div>
   </header>
 
-  <section class="flexrow">
-    <div class="flexcol">
+  <section class="details flexrow">
+    <div class="flexcol mr-2">
       <div class="flexrow my-1">
         <div>{{localize "hero6e.Points"}}</div>
         <div>
@@ -43,7 +48,7 @@
           </div>
         </div>
       {{/if}}
-      {{#if (eq data.roll.type "raw")}}
+      {{#if (eq data.data.roll.type "raw")}}
         <div class="flexrow my-1">
           <div>{{localize "hero6e.Roll"}}</div>
           <div>
