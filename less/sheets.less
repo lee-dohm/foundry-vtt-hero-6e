@@ -1,15 +1,18 @@
 .hero6e.sheet {
-  h1 > input {
-    height: 1.5em;
+  h1 {
+    border: none;
+
+    & > input {
+      height: 1.5em;
+    }
   }
 
   img.profile {
-    flex: 0 0 100px;
-    max-width: 100px;
-    height: 100px;
-    object-fit: contain;
     border: none;
-    border-right: 2px groove var(--color-border-light-1);
+    flex: 0 0 100px;
+    height: 100px;
+    max-width: 100px;
+    object-fit: contain;
   }
 
   .block {
