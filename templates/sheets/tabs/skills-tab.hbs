@@ -7,11 +7,11 @@
 
           {{#each actor.data.data.skills}}
             <div class="flexrow">
-              <div class="flex4">{{this.name}}</div>
-              <div>
-                {{#if (and this.roll this.roll.base)}}
-                  {{this.roll.base}}
-                {{/if}}
+              <img class="item-image" src="{{this.img}}" title="{{this.name}}" height="30" width="30" />
+              <div>{{this.name}}</div>
+              <div class="item-controls flexrow">
+                <a class="item-control item-edit" data-item-id="{{this.id}}">{{icon "edit"}}</a>
+                <a class="item-control item-delete" data-item-id="{{this.id}}">{{icon "trash"}}</a>
               </div>
             </div>
           {{else}}

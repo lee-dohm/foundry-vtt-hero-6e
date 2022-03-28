@@ -49,6 +49,8 @@ export default class HeroActorSheet extends ActorSheet {
 
     html.find('.rollable-characteristic').on('click', (event) => this.onCharacteristicRoll(event))
     html.find('.item-create').on('click', (event) => this.onItemCreate(event))
+    html.find('.item-delete').on('click', (event) => this.onItemDelete(event))
+    html.find('.item-edit').on('click', (event) => this.onItemEdit(event))
   }
 
   /**
@@ -119,6 +121,40 @@ export default class HeroActorSheet extends ActorSheet {
       }
 
       this.actor.createEmbeddedDocuments('Item', [itemData])
+    }
+  }
+
+  protected async onItemDelete(event: JQuery.ClickEvent) {
+    event.preventDefault()
+
+    if (event.currentTarget) {
+      const link = event.currentTarget as HTMLElement
+
+      if (!link.dataset.itemId) {
+        throw new Error('The data-item-id attribute must be set on all item delete links')
+      }
+
+      const itemId = link.dataset.itemId
+      const item = this.actor.items.get(itemId)
+
+      item?.delete()
+    }
+  }
+
+  protected async onItemEdit(event: JQuery.ClickEvent) {
+    event.preventDefault()
+
+    if (event.currentTarget) {
+      const link = event.currentTarget as HTMLElement
+
+      if (!link.dataset.itemId) {
+        throw new Error('The data-item-id attribute must be set on all item edit links')
+      }
+
+      const itemId = link.dataset.itemId
+      const item = this.actor.items.get(itemId)
+
+      item?.sheet?.render(true)
     }
   }
 }
