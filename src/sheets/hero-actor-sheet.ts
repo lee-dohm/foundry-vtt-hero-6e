@@ -124,6 +124,11 @@ export default class HeroActorSheet extends ActorSheet {
     }
   }
 
+  /**
+   * Handler for the various item delete links on the actor sheet.
+   *
+   * @param event Click event for an item delete link.
+   */
   protected async onItemDelete(event: JQuery.ClickEvent) {
     event.preventDefault()
 
@@ -141,6 +146,11 @@ export default class HeroActorSheet extends ActorSheet {
     }
   }
 
+  /**
+   * Handler for the various item edit links on the actor sheet.
+   *
+   * @param event Click event for an item edit link.
+   */
   protected async onItemEdit(event: JQuery.ClickEvent) {
     event.preventDefault()
 
