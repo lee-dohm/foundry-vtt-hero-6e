@@ -101,7 +101,7 @@ export default class HeroActorSheet extends ActorSheet {
    *
    * @param event Click event for the "Add" link.
    */
-   protected async onItemCreate(event: JQuery.ClickEvent) {
+  protected async onItemCreate(event: JQuery.ClickEvent) {
     event.preventDefault()
 
     if (event.currentTarget) {
