@@ -1,9 +1,12 @@
 # HERO System 6E Game System for Foundry VTT
 
-This is a [HERO System 6<sup>th</sup> Edition][hero] game system package for the [Foundry VTT][foundry] virtual table top role playing game system.
+This was intended to be a [HERO System 6<sup>th</sup> Edition][hero] game system package for the [Foundry VTT][foundry] virtual table top role playing game system. Since I started the project, [an official Foundry system for Hero][official] has been started. Because of this, I'm archiving this project and recommending everyone check out the official system instead:
+
+<https://www.uberwald.me/gitea/public/fvtt-hero-system-6>
 
 [hero]: https://www.herogames.com
 [foundry]: https://foundryvtt.com
+[official]: https://www.uberwald.me/gitea/public/fvtt-hero-system-6
 
 ## How to Contribute
 
